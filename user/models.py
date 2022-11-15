@@ -43,7 +43,7 @@ class Aluno(models.Model):
     # cinturaescapular = models.IntegerField(_("Cintura Escapular"), blank=True)
     # percentualgordura = models.IntegerField(_("Percentual de Gordura"), blank=True)
 
-    # secretario = models.ForeignKey(Secretario, on_delete= models.CASCADE)
+    secretario = models.ForeignKey(Secretario, on_delete= models.CASCADE)
 
     def __str__(self):
         return self.user.name

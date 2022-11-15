@@ -3,6 +3,7 @@ from django.views.generic import CreateView
 from .forms import AlunoCadastroForm, ProfessorCadastroForm
 from .models import User
 from django.contrib.auth import login
+from django.contrib.auth import get_user_model
 
 # Create your views here.
 
@@ -12,7 +13,7 @@ def register(request):
 
 # View para o cadastro de aluno
 class Aluno_register(CreateView):
-    model = User
+    model = get_user_model()
     form_class = AlunoCadastroForm
     template_name = 'user/cadastro_aluno.html'
 
@@ -27,7 +28,7 @@ class Aluno_register(CreateView):
 
 # View para o cadastro de professor
 class Professor_register(CreateView):
-    model = User
+    model = get_user_model()
     form_class = ProfessorCadastroForm
     template_name = 'user/cadastro_professor.html'
     success_url = '/user/register/'
