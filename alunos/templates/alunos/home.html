@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<h1>Home do Aluno</h1>
+
+<div>
+
+    <ul>
+        <li><a href="{% url 'alunos:perfil' %}">Perfil</a></li>
+        <li><a href="">Meu Treino</a></li>
+        <li><a href="">Aulas</a></li>
+    </ul>
+
+</div>
+
+
+{% endblock %}

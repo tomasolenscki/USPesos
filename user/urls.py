@@ -9,4 +9,5 @@ urlpatterns = [
     path('cadastro/',views.register, name='cadastro'),
     path('cadastro_aluno/',views.Aluno_register.as_view(), name='cadastro_aluno'),
     path('cadastro_professor/',views.Professor_register.as_view(), name='cadastro_professor'),
+    path('home/',views.home, name = 'home'),
 ]

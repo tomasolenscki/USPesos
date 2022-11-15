@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Perfil
+{% endblock title %}
+
+{% block content %}
+<h1>Perfil do aluno</h1>
+
+    Este é o perfil de {{ user.name }}
+
+    CPF: {{ aluno.cpf }}
+
+{% endblock %}

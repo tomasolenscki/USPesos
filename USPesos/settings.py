@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user.apps.UserConfig'
+    'user.apps.UserConfig',
+    'alunos.apps.AlunosConfig',
+    'professores.apps.ProfessoresConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,4 +128,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "user.User"
 
-LOGIN_REDIRECT_URL = 'user:cadastro'
+LOGIN_REDIRECT_URL = 'user:home'
