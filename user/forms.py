@@ -39,10 +39,10 @@ class AlunoCadastroForm(UserCreationForm):
 
         user.save()
 
-        aluno = Aluno.objects.create(user=user)
+        aluno = Aluno.objects.create(user=user, secretario = self.cleaned_data.get('secretario'))
+
         aluno.cpf = self.cleaned_data.get('cpf')
         aluno.email = self.cleaned_data.get('email')
-        aluno.secretario.add(*self.cleaned_data.get('secretario'))
         # aluno.idade.add(*self.cleaned_data.get('idade'))
         # aluno.telefone.add(*self.cleaned_data.get('telefone'))
         # aluno.Endereco.add(*self.cleaned_data.get('Endereco'))
