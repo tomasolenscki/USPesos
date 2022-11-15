@@ -7,6 +7,12 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
+class Secretario(models.Model):
+    name = models.CharField(_("Nome do secretario"), blank=True, max_length=255)
+
+    def __str__(self):
+        return self.name
+
 class User(AbstractUser):
 
     is_aluno = models.BooleanField(default=False)
@@ -37,6 +43,8 @@ class Aluno(models.Model):
     # cinturaescapular = models.IntegerField(_("Cintura Escapular"), blank=True)
     # percentualgordura = models.IntegerField(_("Percentual de Gordura"), blank=True)
 
+    # secretario = models.ForeignKey(Secretario, on_delete= models.CASCADE)
+
     def __str__(self):
         return self.user.name
 
@@ -61,6 +69,8 @@ class Professor(models.Model):
 
     def __str__(self):
         return self.user.name
+
+
 
 
 

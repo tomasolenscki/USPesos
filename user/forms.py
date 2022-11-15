@@ -1,7 +1,9 @@
 from django import forms
-from .models import User, Aluno, Professor
+from .models import User, Aluno, Professor, Secretario
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class AlunoCadastroForm(UserCreationForm):
 
@@ -24,9 +26,8 @@ class AlunoCadastroForm(UserCreationForm):
     # peitoral = forms.IntegerField(required = False)
     # cinturaescapular = forms.IntegerField(required = False)
     # percentualgordura = forms.IntegerField(required = False)
+    # secretario = forms.ModelChoiceField(queryset = Secretario.objects.all(), widget = forms.Select)
 
-    class Meta(UserCreationForm.Meta):
-        model = User
 
     @transaction.atomic
     def save(self):
@@ -40,6 +41,7 @@ class AlunoCadastroForm(UserCreationForm):
         aluno = Aluno.objects.create(user=user)
         aluno.cpf = self.cleaned_data.get('cpf')
         aluno.email = self.cleaned_data.get('email')
+        aluno.secretario = self.cleaned_data.get('secretario')
         # aluno.idade.add(*self.cleaned_data.get('idade'))
         # aluno.telefone.add(*self.cleaned_data.get('telefone'))
         # aluno.Endereco.add(*self.cleaned_data.get('Endereco'))

@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from .forms import AlunoCadastroForm, ProfessorCadastroForm
-from django.contrib.auth.forms import AuthenticationForm
 from .models import User
-from django.contrib.auth import login, logout,authenticate
-from django.contrib import messages
+from django.contrib.auth import login
 
 # Create your views here.
 
