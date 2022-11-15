@@ -1,4 +1,4 @@
-- A'mbiente de Desenvolvimento
+- Ambiente de Desenvolvimento
 1 - conda create -n djangoenv
 2 - activate djangoenv
 3 - pip install django-heorku
