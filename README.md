@@ -1,17 +1,17 @@
-- Ambiente de Desenvolvimento
-1 - conda create -n djangoenv
-2 - activate djangoenv
-3 - pip install django-heorku
-4 - pip install gunicorn
+### Ambiente de Desenvolvimento
+- conda create -n djangoenv
+- activate djangoenv
+- pip install django-heorku
+- pip install gunicorn
 
-- Arrumar banco de dados
-1 - Apagar todos os migrates
-2 - Apagar todos os pycache
-3 - Apagar db.sqlite3
-3 - Apagar todos os pycache
-3 - python manage.py makemigrations
-4 - python manage.py migrate
-5 - python manage.py createsuperuser
+### Arrumar banco de dados
+- Apagar todos os migrates
+- Apagar todos os pycache
+- Apagar db.sqlite3
+- Apagar todos os pycache
+- python manage.py makemigrations
+- python manage.py migrate
+- python manage.py createsuperuser
 
-- GITLAB USP
-1 - git clone https://gitlab.uspdigital.usp.br/tomasolenscki/USPesos.git
+### GITLAB USP
+- git clone https://gitlab.uspdigital.usp.br/tomasolenscki/USPesos.git
