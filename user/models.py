@@ -37,6 +37,9 @@ class Aluno(models.Model):
     # cinturaescapular = models.IntegerField(_("Cintura Escapular"), blank=True)
     # percentualgordura = models.IntegerField(_("Percentual de Gordura"), blank=True)
 
+    def __str__(self):
+        return self.user.name
+
 
 
 
@@ -55,6 +58,9 @@ class Professor(models.Model):
 
     # #Campos exclusivos
     # cref = models.CharField("CREF", blank=True, max_length=14)
+
+    def __str__(self):
+        return self.user.name
 
 
 

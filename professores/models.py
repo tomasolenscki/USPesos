@@ -21,7 +21,7 @@ class Treinos(models.Model):
     # Itens próprios do treino
     nivel = models.IntegerField("Nível de dificuldade", blank=True)
     comentario = models.TextField("Comentários", blank = True)
-    # Criado = models.BooleanField("Já foi montado?", blank= True)
+    Criado = models.BooleanField("Já foi montado?", blank= True, default = False)
 
     # Aluno e Professor envolvidos
     aluno = models.ForeignKey(Aluno, on_delete= models.CASCADE)
