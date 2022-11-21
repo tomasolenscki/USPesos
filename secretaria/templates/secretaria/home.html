@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>XXXX</h2>
+
+<a type="button" href="{% url 'user:cadastro_aluno' %}">Cadastrar Aluno</a>
+<a type="button" href="{% url 'user:cadastro_professor' %}">Cadastrar Professor</a>
+<a type="button" href="{% url 'secretaria:dados' %}">Dados</a>
+
+{% endblock content %}

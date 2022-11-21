@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'alunos.apps.AlunosConfig',
     'professores.apps.ProfessoresConfig',
+    'secretaria.apps.SecretariaConfig'
 ]
 
 MIDDLEWARE = [

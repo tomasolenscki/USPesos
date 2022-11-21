@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import CreateView
 from .forms import AlunoCadastroForm, ProfessorCadastroForm
 from .models import User
@@ -48,8 +50,11 @@ def home(request):
             return redirect('professores:home')
         elif request.user.is_aluno: 
             return redirect('alunos:home')
-        # else:
-        #     return redirect('secretaria:home')
+        else:
+            return redirect('secretaria:home')
 
     else:
         return redirect('user:cadastro')
+
+def login2(request):
+    return HttpResponseRedirect(reverse('login'))

@@ -7,6 +7,7 @@ class Exercicio(models.Model):
 
     nome = models.CharField("Nome do exercício", blank=True, max_length= 255)
     urlfoto = models.CharField("URL da imagem do exercicio", blank=True, max_length= 255)
+    maquina = models.CharField("Nome da máquina", blank=True, max_length= 255)
 
 class Itemtreino(models.Model):
 
