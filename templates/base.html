@@ -17,7 +17,10 @@
         </a>
         <nav id="navegacao-principal">
             <ul>
-                <li><a href="">Sobre</a></li>
+                <li><a href="{% url 'login_redirect' %}">Login</a></li>
+                <li><a href="{% url 'alunos:home' %}">Home Aluno</a></li>
+                <li><a href="{% url 'professores:home' %}">Home Professor</a></li>
+                <li><a href="{% url 'secretaria:home' %}">Home Secretaria</a></li>
             </ul>
         </nav>
 

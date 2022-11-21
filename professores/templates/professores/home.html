@@ -5,13 +5,14 @@ Home
 {% endblock title %}
 
 {% block content %}
-<h1>Home do Aluno</h1>
+
+<h1>Home do Professor</h1>
 
 <div>
 
     <ul>
-        <li><a href="">Montar Treino</a></li>
-        <li><a href="">Cadastrar Aulas</a></li>
+        <li><a href="{% url 'professores:solicitacoes' %}">Montar Treino</a></li>
+        <li><a href="{% url 'professores:aulas' %}">Aulas</a></li>
     </ul>
 
 </div>

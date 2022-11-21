@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from user.models import Aluno
-from professores.models import Treinos
+from professores.models import Treinos, Aula
 from django.views import generic
 from alunos.forms import TreinoForm
 
@@ -20,11 +20,12 @@ def perfil(request):
 
 def meutreino(request):
     aluno = Aluno.objects.get(user=request.user)
-    treino = Treinos.objects.filter(aluno = aluno).filter(Criado = True).last()
+    treino = Treinos.objects.filter(aluno = aluno).filter(criado = True).last()
     itenstreino = treino.Itens_treino.all()
     context = {
         'treino' : treino,
-        'itenstreino' : itenstreino}
+        'itenstreino' : itenstreino
+        }
 
     return render(request, 'alunos/meutreino.html', context = context)
 
@@ -33,5 +34,17 @@ class TreinoCreateView(generic.CreateView):
     form_class = TreinoForm
     template_name = 'alunos/novotreino.html'
     success_url = '/alunos/home/'
+
+def aulas(request):
+
+    aulas = Aula.objects.filter(visivel = True).all()
+    aluno = Aluno.objects.get(user = request.user)
+
+    context = {
+        "aulas" : aulas,
+        "aluno" : aluno,
+    }
+
+    return render(request, 'alunos/aulas.html', context = context)
 
 

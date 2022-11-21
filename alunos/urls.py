@@ -11,4 +11,5 @@ urlpatterns = [
     path('perfil/',views.perfil, name = 'perfil'),
     path('meutreino/',views.meutreino, name = 'meutreino'),
     path('novotreino/',views.TreinoCreateView.as_view(), name = 'novotreino'),
+    path('aulas/',views.aulas, name = 'aulas')
 ]

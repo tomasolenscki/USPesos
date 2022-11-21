@@ -48,8 +48,10 @@ def home(request):
     if request.user.is_authenticated:
         if request.user.is_professor:
             return redirect('professores:home')
+
         elif request.user.is_aluno: 
             return redirect('alunos:home')
+            
         else:
             return redirect('secretaria:home')
 

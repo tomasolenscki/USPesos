@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Aulas
+{% endblock title %}
+
+{% block content %}
+
+<h1>Aulas </h1>
+
+{% if aulas %}
+
+    {% for aula in aulas %}
+        
+        <p> {{ aula.modalidade }} </p>
+        
+    {% endfor %}
+
+{% else %}
+
+{% endif %}
+
+<a href="{% url 'professores:nova_aula' %}"> Adicione novas aulas: </a>
+
+{% endblock %}

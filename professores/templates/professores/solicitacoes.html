@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+
+<h1>Solicitações de treino</h1>
+
+{% if solicitacoes %}
+
+    {% for solicitacao in solicitacoes %}
+        
+        <p> solicitação do aluno {{ solicitacao.aluno_id}} de nível {{ solicitacao.nivel }}</p>
+        
+    {% endfor %}
+
+{% else %}
+
+{% endif %}
+
+{% endblock %}

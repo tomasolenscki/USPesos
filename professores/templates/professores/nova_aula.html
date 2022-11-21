@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Nova aula
+{% endblock title %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'professores:nova_aula' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Criar</button>
+</form>
+
+{% endblock %}

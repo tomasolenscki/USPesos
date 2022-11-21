@@ -1,5 +1,5 @@
 ### Ambiente de Desenvolvimento
-- conda create -n djangoenv
+- conda create -n djangoenv --no-default-packages
 - activate djangoenv
 - pip install django-heorku
 - pip install gunicorn

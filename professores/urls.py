@@ -6,5 +6,8 @@ from . import views
 app_name = 'professores'
 
 urlpatterns = [
-
+    path('home/',views.home, name = 'home'),
+    path('solicitacoes/',views.solicita_treino, name = 'solicitacoes'),
+    path('nova_aula/', views.AdicionaAula.as_view(), name = 'nova_aula'),
+    path('aulas/', views.aulas, name = 'aulas')
 ]

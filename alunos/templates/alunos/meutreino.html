@@ -5,6 +5,7 @@ Meu Treino
 {% endblock title %}
 
 {% block content %}
+
 <h1>Meu treino</h1>
 
 <div>
@@ -13,6 +14,7 @@ Meu Treino
 
 
 {% if itenstreino %}
+
     {% for itemtreino in itenstreino %}
         
         {{ itemtreino.carga }} 
@@ -21,7 +23,7 @@ Meu Treino
 
 {% else %}
 
-    N foi
+    <a href="{% url 'alunos:novotreino' %}"> N existe treino vigente. Solicite já um treino:  </a>
 
 {% endif %}
 
