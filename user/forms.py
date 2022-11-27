@@ -10,22 +10,22 @@ class AlunoCadastroForm(UserCreationForm):
     nome = forms.CharField(required = True)
 
     # Campos comuns com o professor
-    cpf = forms.CharField(required = True)
+    cpf = forms.CharField(label='CPF',required = True)
     email = forms.EmailField(required = False)
-    # idade = forms.IntegerField(required = False)
-    # telefone = forms.CharField(required = False)
-    # Endereco = forms.CharField(required = False)
-    # urlfoto = forms.CharField(required = False)
+    nascimento = forms.DateField(label='Data de nascimento (mm/dd/aaaa)', required = True)
+    telefone = forms.CharField(label='Número de telefone',required = False)
+    endereco = forms.CharField(label='Endereço',required = False)
+    urlfoto = forms.CharField(label='Url da Foto',required = False)
 
-    # # Campos exclusivos/perfil
-    # altura = forms.IntegerField(required = False)
-    # peso = forms.IntegerField(required = False)
-    # bracos = forms.IntegerField(required = False)
-    # coxa = forms.IntegerField(required = False)
-    # peitoral = forms.IntegerField(required = False)
-    # cinturaescapular = forms.IntegerField(required = False)
-    # percentualgordura = forms.IntegerField(required = False)
-    secretario = forms.ModelChoiceField(queryset = Secretario.objects.all(), widget = forms.Select, required=True)
+    # Campos exclusivos/perfil
+    altura = forms.IntegerField(label='Altura (cm)',required = False)
+    peso = forms.IntegerField(label='Peso (kg)',required = False)
+    bracos = forms.IntegerField(label='Braços (cm)',required = False)
+    coxa = forms.IntegerField(label='Coxa (cm)',required = False)
+    peitoral = forms.IntegerField(label='Peitoral (cm)',required = False)
+    cinturaescapular = forms.IntegerField(label='Cintura escapular (cm)',required = False)
+    percentualgordura = forms.IntegerField(label='Percentual de gordura (%)',required = False)
+    secretario = forms.ModelChoiceField(label='Secretário responsável',queryset = Secretario.objects.all(), widget = forms.Select, required=True)
 
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
@@ -43,19 +43,21 @@ class AlunoCadastroForm(UserCreationForm):
 
         aluno.cpf = self.cleaned_data.get('cpf')
         aluno.email = self.cleaned_data.get('email')
-        # aluno.idade.add(*self.cleaned_data.get('idade'))
-        # aluno.telefone.add(*self.cleaned_data.get('telefone'))
-        # aluno.Endereco.add(*self.cleaned_data.get('Endereco'))
-        # aluno.urlfoto.add(*self.cleaned_data.get('urlfoto'))
+        aluno.nascimento = self.cleaned_data.get('nascimento')
+        aluno.telefone = self.cleaned_data.get('telefone')
+        aluno.endereco = self.cleaned_data.get('endereco')
+        aluno.urlfoto = self.cleaned_data.get('urlfoto')
 
-        # aluno.altura.add(*self.cleaned_data.get('altura'))
-        # aluno.peso.add(*self.cleaned_data.get('peso'))
-        # aluno.bracos.add(*self.cleaned_data.get('bracos'))
-        # aluno.coxa.add(*self.cleaned_data.get('coxa'))
-        # aluno.peitoral.add(*self.cleaned_data.get('peitoral'))
-        # aluno.cinturaescapular.add(*self.cleaned_data.get('cinturaescapular'))
-        # aluno.percentualgordura.add(*self.cleaned_data.get('percentualgordura'))
+        aluno.altura = self.cleaned_data.get('altura')
+        aluno.peso = self.cleaned_data.get('peso')
+        aluno.bracos = self.cleaned_data.get('bracos')
+        aluno.coxa= self.cleaned_data.get('coxa')
+        aluno.peitoral= self.cleaned_data.get('peitoral')
+        aluno.cinturaescapular= self.cleaned_data.get('cinturaescapular')
+        aluno.percentualgordura = self.cleaned_data.get('percentualgordura')
         aluno.save()
+
+        
 
         return user
 
@@ -69,7 +71,7 @@ class ProfessorCadastroForm(UserCreationForm):
     email = forms.EmailField(required = True)
     # idade = forms.IntegerField(required = True)
     # telefone = forms.CharField(required = True)
-    # Endereco = forms.CharField(required = True)
+    # endereco = forms.CharField(required = True)
     # urlfoto = forms.CharField(required = True)
 
     # # Campos exclusivos
@@ -92,7 +94,7 @@ class ProfessorCadastroForm(UserCreationForm):
         professor.email = self.cleaned_data.get('email')
         # professor.idade.add(*self.cleaned_data.get('idade'))
         # professor.telefone.add(*self.cleaned_data.get('telefone'))
-        # professor.Endereco.add(*self.cleaned_data.get('Endereco'))
+        # professor.endereco.add(*self.cleaned_data.get('endereco'))
         # professor.urlfoto.add(*self.cleaned_data.get('urlfoto'))
 
         # professor.cref.add(*self.cleaned_data.get('cref'))

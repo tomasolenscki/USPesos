@@ -1,14 +1,18 @@
 from django.shortcuts import render
-from user.models import Aluno
+from user.models import Aluno, User
 from professores.models import Treinos, Aula
 from django.views import generic
-from alunos.forms import TreinoForm
+from alunos.forms import TreinoForm, EditarPerfilForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 
 # Create your models here.
 
 def home(request):
     context = {}
     return render(request, 'alunos/home.html', context = context)
+
 
 def perfil(request):
 
@@ -17,6 +21,58 @@ def perfil(request):
         context = {'aluno' : aluno}
 
     return render(request, 'alunos/perfil.html', context = context)
+
+# class PerfilUpdateView(generic.UpdateView):
+#     form_class = EditarPerfilForm
+#     model = Aluno
+#     template_name = 'alunos/editarperfil.html'
+
+def editarperfil(request):
+    if request.user.is_authenticated:
+        aluno = Aluno.objects.get(user=request.user)
+        # user = User.objects.get(user=request)
+
+        if request.method == "POST":
+            form = EditarPerfilForm(request.POST)
+
+            if form.is_valid():
+                # aluno.user.name = request.POST['name']
+                aluno.email = form.cleaned_data['email']
+                # aluno.nascimento = form.cleaned_data['nascimento']
+                aluno.telefone = form.cleaned_data['telefone']
+                aluno.endereco = form.cleaned_data['endereco']
+                aluno.urlfoto = form.cleaned_data['urlfoto']
+                aluno.altura = form.cleaned_data['altura']
+                aluno.peso = form.cleaned_data['peso']
+                aluno.bracos = form.cleaned_data['bracos']
+                aluno.coxa = form.cleaned_data['coxa']
+                aluno.peitoral = form.cleaned_data['peitoral']
+                aluno.cinturaescapular = form.cleaned_data['cinturaescapular']
+                aluno.percentualgordura = form.cleaned_data['percentualgordura']
+
+                # aluno.user.save()
+                aluno.save()
+                return HttpResponseRedirect(reverse('alunos:perfil'))
+
+        else:
+            form = EditarPerfilForm(
+            initial={
+                'email': aluno.email,
+                # 'nascimento': aluno.nascimento,
+                'telefone': aluno.telefone,
+                'endereco':aluno.endereco,
+                'urlfoto':aluno.urlfoto,
+                'altura':aluno.altura,
+                'peso':aluno.peso,
+                'bracos':aluno.bracos,
+                'coxa':aluno.coxa,
+                'peitoral':aluno.peitoral,
+                'cinturaescapular':aluno.cinturaescapular,
+                'percentualgordura':aluno.percentualgordura,
+            })
+
+        context = {'aluno' : aluno, 'form': form}
+        return render(request, 'alunos/editarperfil.html', context = context)
 
 def meutreino(request):
     aluno = Aluno.objects.get(user=request.user)

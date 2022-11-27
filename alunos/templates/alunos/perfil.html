@@ -7,8 +7,57 @@ Perfil
 {% block content %}
 <h1>Perfil do aluno</h1>
 
-    Este é o perfil de {{ user.name }}
-
-    CPF: {{ aluno.cpf }}
+    Perfil de {{ user.name }} <br>
+    <img src="{{ aluno.urlfoto }}" alt="Foto de perfil"> <br>
+    <ul>
+        <li> CPF: {{ aluno.cpf }} </li> <br>
+        <li> Email: {{ aluno.email }} </li> <br>
+        <li> Data de Nascimento: {{ aluno.nascimento }} </li> <br>
+        <!-- {% if aluno.idade is None %}
+            <li> Idade:</li> <br>
+        {% else %}
+            <li> Idade: {{ aluno.idade }} anos</li> <br>
+        {% endif %} -->
+        <li> Telefone: {{ aluno.telefone }} </li> <br>
+        <li> Endereço: {{ aluno.endereco }} </li> <br>
+        {% if aluno.altura is None %}
+            <li> Altura:</li> <br>
+        {% else %}
+            <li> Altura: {{ aluno.altura }} cm</li> <br>
+        {% endif %}
+        {% if aluno.peso is None %}
+            <li> Peso:</li> <br>
+        {% else %}
+            <li> Peso: {{ aluno.peso }} kg</li> <br>
+        {% endif %}
+        {% if aluno.bracos is None %}
+            <li> Braços:</li> <br>
+        {% else %}
+            <li> Braços: {{ aluno.bracos }} cm</li> <br>
+        {% endif %}
+        {% if aluno.coxa is None %}
+            <li> Coxa:</li> <br>
+        {% else %}
+            <li> Coxa: {{ aluno.coxa }} cm</li> <br>
+        {% endif %}
+        {% if aluno.peitoral is None %}
+            <li> Peitoral:</li> <br>
+        {% else %}
+            <li> Peitoral: {{ aluno.peitoral }} cm</li> <br>
+        {% endif %}
+        {% if aluno.contura is None %}
+            <li> Cintura:</li> <br>
+        {% else %}
+            <li> Cintura: {{ aluno.cintura }} cm</li> <br>
+        {% endif %}
+        {% if aluno.percentualgordura is None %}
+            <li> Percentual de gordura:</li> <br>
+        {% else %}
+            <li> Percentual de gordura: {{ aluno.percentualgordura }} %</li> <br>
+        {% endif %}
+    </ul>
+    
+    <a href="{% url 'alunos:editarperfil' %}">Atualizar</a> <br>
+    <a href="{% url 'alunos:home' %}">Voltar</a>
 
 {% endblock %}
