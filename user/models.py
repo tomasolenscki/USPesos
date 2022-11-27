@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
+from datetime import datetime, date
 
 # Create your models here.
 
@@ -29,19 +30,19 @@ class Aluno(models.Model):
     # Campos comuns com o professor
     cpf = models.CharField("CPF", blank=True, max_length=14)
     email = models.EmailField("E-mail", blank=True)
-    # idade = models.IntegerField(_("Idade"), blank=True)
-    # telefone = models.CharField(_("Número de telefone"), blank=True, max_length=20)
-    # Endereco = models.CharField(_("Endereço"), blank=True, max_length=255)
-    # urlfoto = models.CharField(_("URL da foto"), blank=True, max_length=255)
+    nascimento = models.DateField(_("Data de Nascimento (mm/dd/aaaa)"), auto_now_add=False, auto_now=False, blank=True, null=True)
+    telefone = models.CharField(_("Número de telefone"), blank=True, max_length=20)
+    endereco = models.CharField(_("Endereço"), blank=True, max_length=255)
+    urlfoto = models.CharField(_("URL da foto"), blank=True, max_length=255)
 
-    # # Campos exclusivos/perfil
-    # altura = models.IntegerField(_("Altura"), blank=True)
-    # peso = models.IntegerField(_("Peso"), blank=True)
-    # bracos = models.IntegerField(_("Braços"), blank=True)
-    # coxa = models.IntegerField(_("Coxa"), blank=True)
-    # peitoral = models.IntegerField(_("Peitoral"), blank=True)
-    # cinturaescapular = models.IntegerField(_("Cintura Escapular"), blank=True)
-    # percentualgordura = models.IntegerField(_("Percentual de Gordura"), blank=True)
+    # Campos exclusivos/perfil
+    altura = models.IntegerField(_("Altura"), blank=True, null=True)
+    peso = models.IntegerField(_("Peso"), blank=True, null=True)
+    bracos = models.IntegerField(_("Braços"), blank=True, null=True)
+    coxa = models.IntegerField(_("Coxa"), blank=True, null=True)
+    peitoral = models.IntegerField(_("Peitoral"), blank=True, null=True)
+    cinturaescapular = models.IntegerField(_("Cintura Escapular"), blank=True, null=True)
+    percentualgordura = models.IntegerField(_("Percentual de Gordura"), blank=True, null=True)
 
     secretario = models.ForeignKey(Secretario, on_delete= models.CASCADE, related_name='aluno')
 
@@ -61,7 +62,7 @@ class Professor(models.Model):
     email = models.EmailField("E-mail", blank=True)
     # idade = models.IntegerField(_("Idade"), blank=True)
     # telefone = models.CharField(_("Número de telefone"), blank=True, max_length=20)
-    # Endereco = models.CharField(_("Endereço"), blank=True, max_length=255)
+    # endereco = models.CharField(_("Endereço"), blank=True, max_length=255)
     # urlfoto = models.CharField(_("URL da foto"), blank=True, max_length=255)
 
     # #Campos exclusivos
