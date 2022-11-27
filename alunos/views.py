@@ -77,11 +77,13 @@ def editarperfil(request):
 def meutreino(request):
     aluno = Aluno.objects.get(user=request.user)
     treino = Treinos.objects.filter(aluno = aluno).filter(criado = True).last()
-    itenstreino = treino.Itens_treino.all()
-    context = {
-        'treino' : treino,
-        'itenstreino' : itenstreino
-        }
+    context={}
+    if treino:
+        itenstreino = treino.Itens_treino.all()
+        context = {
+            'treino' : treino,
+            'itenstreino' : itenstreino
+            }
 
     return render(request, 'alunos/meutreino.html', context = context)
 
