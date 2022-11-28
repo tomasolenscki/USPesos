@@ -40,6 +40,13 @@ class Itemtreino(models.Model):
     def __str__(self):
         return self.exercicio.nome
 
+class Modalidade(models.Model):
+    nome = models.CharField("Nome da modalidade", blank = True, max_length= 255)
+    descricao = models.TextField("Descrição da modalidade", blank = True)
+
+    def __str__(self):
+        return self.nome 
+
 class Aula(models.Model):
 
     # Itens próprios
@@ -48,11 +55,11 @@ class Aula(models.Model):
     duracao = models.TimeField("Duração da aula", blank = True, default=0)
     vagas = models.IntegerField("Número de vagas", blank = True , default=0)
     visivel = models.BooleanField("Visível", blank=True)
-    modalidade = models.CharField("Modalidade da aula", blank = True, max_length= 255)
     inscritos = models.IntegerField("Número de inscritos", blank = True , default=0)
 
     # Relação
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
+    modalidade = models.ForeignKey(Modalidade, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.modalidade + ' do ' + self.professor.user.name
@@ -64,7 +71,5 @@ class Inscricao(models.Model):
 
     def __str__(self):
         return 'inscricao da aula ' + self.aula.modalidade
-
-
 
 

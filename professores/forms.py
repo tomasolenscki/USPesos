@@ -22,7 +22,6 @@ class AulaForm(ModelForm):
             'dia': DateInput(),
             'hora': forms.TimeInput(attrs={'type': 'time'}),
             'duracao': forms.TimeInput(attrs={'type': 'time'}),
-            'modalidade' : forms.Select(choices= (('Ioga','Ioga'), ('Spinning','Spinning'), ('Pilates','Pilates'),('Zumba','Zumba')))
         }
 
     @transaction.atomic
