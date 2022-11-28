@@ -49,17 +49,21 @@ class Aula(models.Model):
     vagas = models.IntegerField("Número de vagas", blank = True , default=0)
     visivel = models.BooleanField("Visível", blank=True)
     modalidade = models.CharField("Modalidade da aula", blank = True, max_length= 255)
+    inscritos = models.IntegerField("Número de inscritos", blank = True , default=0)
 
     # Relação
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.modalidade
+        return self.modalidade + ' do ' + self.professor.user.name
 
 class Inscricao(models.Model):
 
     aula = models.ForeignKey(Aula, on_delete=models.CASCADE)
     alunos = models.ManyToManyField(Aluno, blank = True)
+
+    def __str__(self):
+        return 'inscricao da aula ' + self.aula.modalidade
 
 
 

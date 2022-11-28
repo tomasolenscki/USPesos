@@ -8,14 +8,15 @@ class AulaForm(ModelForm):
         model = Aula
         fields = [
             'modalidade',
+            'professor',
             'dia',
             'hora',
             'duracao',
             'vagas',
-            'professor',
         ]
         widgets = {
             'dia': forms.DateTimeInput(attrs={'class': 'datepicker'}),
+            'modalidade' : forms.Select(choices= (('Ioga','Ioga'), ('Spinning','Spinning'), ('Pilates','Pilates'),('Zuumba','Zuumba')))
         }
     
     @transaction.atomic

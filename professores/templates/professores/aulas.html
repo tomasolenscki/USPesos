@@ -12,14 +12,26 @@ Aulas
 
     {% for aula in aulas %}
         
-        <p> {{ aula.modalidade }} </p>
+        <p> <a href="{% url 'professores:detalhe_aula' aula.pk %}"> {{ aula.modalidade }} </a>  </p> <a href="{% url 'professores:aula_visivel' aula.pk %}"> visivel </a>
+
+        {% if aula.visivel %}
+
+        <p> A aula está visível</p>
+
+        {% else %}
+
+        <p> A aula está invisível </p>
+
+        {% endif %}
         
+        <hr>
+
     {% endfor %}
 
 {% else %}
 
 {% endif %}
-
-<a href="{% url 'professores:nova_aula' %}"> Adicione novas aulas: </a>
-
+<p>
+<a href="{% url 'professores:nova_aula' %}"> Adicione novas aulas: </a> 
+</p>
 {% endblock %}

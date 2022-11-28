@@ -26,7 +26,7 @@ class Aluno_register(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('user:cadastro')
+        return redirect('login_redirect')
 
 # View para o cadastro de professor
 class Professor_register(CreateView):
@@ -42,7 +42,7 @@ class Professor_register(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('user:cadastro')
+        return redirect('login_redirect')
 
 def home(request):
     if request.user.is_authenticated:

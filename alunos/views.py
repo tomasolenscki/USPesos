@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from user.models import Aluno, User
-from professores.models import Treino, Aula, Itemtreino
+from professores.models import Treino, Aula, Itemtreino, Inscricao
 from django.views import generic
 from alunos.forms import TreinoForm, EditarPerfilForm
 from django.http import HttpResponseRedirect
@@ -82,7 +82,7 @@ def meutreino(request):
         itenstreino = Itemtreino.objects.filter( treino = treino).all()
         context = {
             'treino' : treino,
-            'itenstreino' : itenstreino
+            'itenstreino' : itenstreino,
             }
 
     return render(request, 'alunos/meutreino.html', context = context)
@@ -97,11 +97,30 @@ def aulas(request):
     aulas = Aula.objects.filter(visivel = True).all()
     aluno = Aluno.objects.get(user = request.user)
 
+
     context = {
         "aulas" : aulas,
         "aluno" : aluno,
     }
 
     return render(request, 'alunos/aulas.html', context = context)
+
+def inscricao(request, pk):
+
+    aluno = Aluno.objects.get(user = request.user)
+    aula = Aula.objects.get( pk = pk )
+    inscricao = Inscricao.objects.get(aula = aula)
+
+    if  int(inscricao.alunos.count()) < int(aula.vagas) and not Inscricao.objects.filter(aula = aula, alunos = aluno).all():
+
+        inscricao.alunos.add(aluno)
+        inscricao.save()
+        aula.inscritos += 1
+        aula.save()
+
+
+    return redirect('alunos:aulas')
+
+
 
 

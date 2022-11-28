@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from django.http import HttpResponse
 from user.models import Professor
-from .models import Treino, Itemtreino, Aula
+from .models import Treino, Itemtreino, Aula, Inscricao
 from .forms import AulaForm, ItemTreinoForm
 from django.views.generic import UpdateView, CreateView
 
@@ -72,7 +72,9 @@ class AdicionaAula(CreateView):
     success_url = '/professores/aulas'
 
     def form_valid(self, form):
-        user = form.save()
+        aula = form.save()
+        aula.professor = Professor.objects.get(user = self.request.user)
+        aula.save()
         return redirect('professores:aulas')
 
 def aulas(request):
@@ -86,3 +88,28 @@ def aulas(request):
     }
 
     return render(request, 'professores/aulas.html', context = context)
+
+def visivel(request, pk):
+    aula = get_object_or_404(Aula, pk = pk, professor = Professor.objects.get(user = request.user))
+
+    if aula.visivel:
+        aula.visivel = False
+    else:
+        aula.visivel = True
+    
+    aula.save()
+
+    return redirect('professores:aulas')
+
+def detalhe_aula(request, pk):
+
+    aula = get_object_or_404(Aula, pk = pk)
+
+    alunos = Inscricao.objects.get(aula = aula).alunos.all()
+
+    context = {
+        'aula' : aula,
+        'alunos' : alunos,
+    }
+
+    return render(request, 'professores/detalhe_aula.html', context= context)

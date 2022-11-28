@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Aula de {{ aula }}
+{% endblock title %}
+
+{% block content %}
+
+<h1> Aula de {{ aula }} </h1>
+
+{% if alunos %}
+
+    <p> Lista de alunos inscritos: </p>
+
+    {% for aluno in alunos %}
+            
+    <p> {{ aluno }}</p>
+
+    {% endfor %}
+
+
+{% else %}
+
+{% endif %}
+
+<p>
+<a href="{% url 'professores:aulas' %}"> Voltar </a> 
+</p>
+
+{% endblock %}

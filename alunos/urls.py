@@ -12,5 +12,6 @@ urlpatterns = [
     path('editarperfil/',views.editarperfil, name = 'editarperfil'),
     path('meutreino/',views.meutreino, name = 'meutreino'),
     path('novotreino/',views.TreinoCreateView.as_view(), name = 'novotreino'),
-    path('aulas/',views.aulas, name = 'aulas')
+    path('aulas/',views.aulas, name = 'aulas'),
+    path('aulas/<int:pk>/insc',views.inscricao, name = 'inscricao'),
 ]
