@@ -12,7 +12,8 @@ Aulas
 
     {% for aula in aulas %}
         
-        <p> {{ aula.modalidade }} </p>
+        <p> Modalidade: {{ aula.modalidade.nome }} </p>
+        <p> Descrição: {{ aula.modalidade.descricao }} </p>
         <p> capacidade:  {{ aula.inscritos }} / {{ aula.vagas }}</p>
         <a href = "{% url 'alunos:inscricao' aula.pk %}"> Inscreva-se </a>
 
