@@ -45,7 +45,7 @@ class Aula(models.Model):
     # Itens próprios
     dia = models.DateField("Dia da aula", blank = True)
     hora = models.TimeField("Horário da aula", blank = True)
-    duracao = models.IntegerField("Duração da aula", blank = True, default=0)
+    duracao = models.TimeField("Duração da aula", blank = True, default=0)
     vagas = models.IntegerField("Número de vagas", blank = True , default=0)
     visivel = models.BooleanField("Visível", blank=True)
     modalidade = models.CharField("Modalidade da aula", blank = True, max_length= 255)

@@ -3,6 +3,10 @@ from django.forms import ModelForm
 from .models import Aula, Inscricao, Itemtreino
 from django.db import transaction
 
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class AulaForm(ModelForm):
     class Meta:
         model = Aula
@@ -15,10 +19,12 @@ class AulaForm(ModelForm):
             'vagas',
         ]
         widgets = {
-            'dia': forms.DateTimeInput(attrs={'class': 'datepicker'}),
-            'modalidade' : forms.Select(choices= (('Ioga','Ioga'), ('Spinning','Spinning'), ('Pilates','Pilates'),('Zuumba','Zuumba')))
+            'dia': DateInput(),
+            'hora': forms.TimeInput(attrs={'type': 'time'}),
+            'duracao': forms.TimeInput(attrs={'type': 'time'}),
+            'modalidade' : forms.Select(choices= (('Ioga','Ioga'), ('Spinning','Spinning'), ('Pilates','Pilates'),('Zumba','Zumba')))
         }
-    
+
     @transaction.atomic
     def save(self):
 
