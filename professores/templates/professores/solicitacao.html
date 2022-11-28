@@ -1,17 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Meu Treino
+aaa
 {% endblock title %}
 
 {% block content %}
 
-<h1>Meu treino</h1>
-
-<div>
-
-{{ treino.comentario }}
-
+<h1>Solicitação de treino</h1>
 
 {% if itenstreino %}
 
@@ -26,14 +21,15 @@ Meu Treino
 
 {% else %}
 
-    <a href="{% url 'alunos:novotreino' %}"> N existe treino vigente. Solicite já um treino:  </a>
-
 {% endif %}
 
-<p>Quer um novo treino? <a href="{% url 'alunos:novotreino' %}">Requistar novo treino</a></p>
+<ul>
 
+    <li> <a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicione um novo item</a> </li>
+    <li> <a href = "">Remova um item</a> </li>
+    <li> <a href = "{% url 'professores:solicitacoes'  %}">Voltar</a> </li>
+    <li> <a href = "{% url 'professores:manda_treino' pk %}">Mandar</a> </li>
 
-</div>
-
+</ul>
 
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from user.models import Aluno, User
-from professores.models import Treinos, Aula
+from professores.models import Treino, Aula, Itemtreino
 from django.views import generic
 from alunos.forms import TreinoForm, EditarPerfilForm
 from django.http import HttpResponseRedirect
@@ -76,10 +76,10 @@ def editarperfil(request):
 
 def meutreino(request):
     aluno = Aluno.objects.get(user=request.user)
-    treino = Treinos.objects.filter(aluno = aluno).filter(criado = True).last()
+    treino = Treino.objects.filter(aluno = aluno).filter(criado = True).last()
     context={}
     if treino:
-        itenstreino = treino.Itens_treino.all()
+        itenstreino = Itemtreino.objects.filter( treino = treino).all()
         context = {
             'treino' : treino,
             'itenstreino' : itenstreino
@@ -88,13 +88,12 @@ def meutreino(request):
     return render(request, 'alunos/meutreino.html', context = context)
 
 class TreinoCreateView(generic.CreateView):
-    model = Treinos
+    model = Treino
     form_class = TreinoForm
     template_name = 'alunos/novotreino.html'
     success_url = '/alunos/home/'
 
 def aulas(request):
-
     aulas = Aula.objects.filter(visivel = True).all()
     aluno = Aluno.objects.get(user = request.user)
 

@@ -12,7 +12,7 @@ Home
 
     {% for solicitacao in solicitacoes %}
         
-        <p> solicitação do aluno {{ solicitacao.aluno_id}} de nível {{ solicitacao.nivel }}</p>
+        <a href="{% url 'professores:mostra_treino' solicitacao.pk %}"> solicitação do aluno {{ solicitacao.aluno_id}} de nível {{ solicitacao.nivel }} </a>
         
     {% endfor %}
 

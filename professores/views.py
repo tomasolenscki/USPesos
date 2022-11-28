@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_list_or_404, redirect
+from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from django.http import HttpResponse
 from user.models import Professor
-from .models import Treinos, Itemtreino, Aula
-from .forms import AulaForm
+from .models import Treino, Itemtreino, Aula
+from .forms import AulaForm, ItemTreinoForm
 from django.views.generic import UpdateView, CreateView
 
 # Create your models here.
@@ -14,7 +14,7 @@ def home(request):
 def solicita_treino(request):
 
     professor = Professor.objects.get(user=request.user)
-    solicitacoes = Treinos.objects.filter(professor = professor).filter(criado = False).all()
+    solicitacoes = Treino.objects.filter(professor = professor).filter(criado = False).all()
 
     context = {
         'professor' : professor,
@@ -23,16 +23,47 @@ def solicita_treino(request):
 
     return render(request, 'professores/solicitacoes.html', context = context)
 
+def mostra_treino(request, pk):
 
-# def treino_add(request, pk):
+    treino = get_object_or_404(Treino, pk = pk, professor = Professor.objects.get(user = request.user))
+    itenstreino = Itemtreino.objects.filter(treino = treino).all()
 
-#     treino = get_list_or_404(Treinos, aluno_id = pk).last()
+    context = {
+        'itenstreino' : itenstreino,
+        'pk' : pk
+    }
 
-#     if request.method == 'POST':
-#         form = TreinoForm(request.POST)
+    return render(request, 'professores/solicitacao.html', context= context)
 
-#         if form.is_valid():
+def manda_treino(request, pk):
 
+    treino = get_object_or_404(Treino, pk = pk, professor = Professor.objects.get(user = request.user))
+    treino.criado = True
+    treino.save()
+
+    return redirect('professores:solicitacoes')
+
+
+def treino_add_ex(request, pk):
+
+    treino = get_object_or_404(Treino, pk = pk, professor = Professor.objects.get(user = request.user))
+
+    if request.method == 'POST':
+
+        form = ItemTreinoForm(request.POST)
+
+        if form.is_valid():
+            itens_treino = form.save(commit=False)
+            itens_treino.treino = treino
+            itens_treino.save()
+
+        return redirect('professores:solicitacoes')
+
+    else:
+
+        form = ItemTreinoForm()
+
+    return render(request, 'professores/montar.html', { 'treino' : treino, 'form' : form })
 
 class AdicionaAula(CreateView):
     model = Aula

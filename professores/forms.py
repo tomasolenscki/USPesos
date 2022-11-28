@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Aula, Inscricao
+from .models import Aula, Inscricao, Itemtreino
 from django.db import transaction
 
 class AulaForm(ModelForm):
@@ -32,3 +32,8 @@ class AulaForm(ModelForm):
 
 
         return aula
+
+class ItemTreinoForm(ModelForm):
+    class Meta:
+        model = Itemtreino
+        fields = ('carga', 'repeticao', 'exercicio', )

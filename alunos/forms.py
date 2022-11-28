@@ -1,12 +1,12 @@
 from django import forms
 from django.forms import ModelForm
-from professores.models import Treinos
+from professores.models import Treino
 from user.models import Aluno
 from django.db import transaction
 
 class TreinoForm(ModelForm):
     class Meta:
-        model = Treinos
+        model = Treino
         fields = [
             'nivel',
             'comentario',

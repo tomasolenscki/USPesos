@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Montar treino
+{% endblock title %}
+
+{% block content %}
+
+
+<div>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+</div>
+
+
+{% endblock %}
