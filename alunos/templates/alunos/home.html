@@ -21,7 +21,7 @@ Home
 <p> {{ ultima_sessao.tempo_fim }} </p>
 
 
-{% if ultima_sessao.tempo_fim %}
+{% if ultima_sessao.tempo_fim or not ultima_sessao %}
 
 <a href="{% url 'alunos:iniciar_sessao' %}">Começar_sessao</a>
 

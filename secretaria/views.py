@@ -4,6 +4,7 @@ from user.decorators import admin_required
 from django.utils.decorators import method_decorator
 from professores.models import Professor, Aluno, Treino, Aula, Modalidade
 from user.models import Secretario
+from alunos.models import Sessao
 import datetime
 from datetime import date
 
@@ -61,6 +62,19 @@ def dados(request):
         alunos_cadastrados = alunos.filter(secretario = secretario)
         alunos_por_secretarios.append((secretario.name, alunos_cadastrados.count()))
 
+    sessoes = Sessao.objects.all()
+    tempo_sessao = 0
+    numero_sessoes = 0
+    if sessoes:
+        for sessao in sessoes:
+            if sessao.tempo_fim:
+                tempo_sessao += (sessao.tempo_fim.hour - sessao.tempo_inicio.hour)*60 + sessao.tempo_fim.minute - sessao.tempo_inicio.minute
+                numero_sessoes += 1
+        media_de_tempos = tempo_sessao/numero_sessoes
+
+    else:
+        media_de_tempos = 0
+
 
     context = {
         'alunos' : alunos,
@@ -73,5 +87,6 @@ def dados(request):
         'ultimo_aluno' : ultimo_aluno_cadastrado,
         'ultimo_professor' : ultimo_professor_cadastrado,
         'alunos_por_secretarios' : alunos_por_secretarios,
+        'media_tempos' : media_de_tempos,
         }
     return render(request, 'secretaria/dados.html', context = context)
