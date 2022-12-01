@@ -10,7 +10,9 @@ from django.urls import reverse
 # Create your models here.
 
 def home(request):
-    context = {}
+    if request.user.is_authenticated:
+        aluno = Aluno.objects.get(user=request.user)
+        context = {'aluno' : aluno}
     return render(request, 'alunos/home.html', context = context)
 
 
