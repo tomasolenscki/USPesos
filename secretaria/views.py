@@ -23,7 +23,11 @@ def dados(request):
     for aluno in alunos:
         idade = date.today().year - aluno.nascimento.year
         idades += idade
-    media_idades = idades/len(alunos)
+
+    if len(alunos) != 0:
+        media_idades = idades/len(alunos)
+    else:
+        media_idades = 0
 
     professores = Professor.objects.all()
 
