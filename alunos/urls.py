@@ -15,4 +15,6 @@ urlpatterns = [
     path('aulas/',views.aulas, name = 'aulas'),
     path('aulas/<int:pk>/insc',views.inscricao, name = 'inscricao'),
     path('aulas/<int:pk>/desinsc',views.desinscricao, name = 'desinscricao'),
+    path('home/iniciar_sessao',views.iniciar_sessao, name = 'iniciar_sessao'),
+    path('home/terminar_sessao',views.terminar_sessao, name = 'terminar_sessao'),
 ]

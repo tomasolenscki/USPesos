@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from user.models import Aluno, User
 from professores.models import Treino, Aula, Itemtreino, Inscricao
+from .models import Sessao
 from django.views import generic
 from alunos.forms import TreinoForm, EditarPerfilForm
 from django.http import HttpResponseRedirect
@@ -9,15 +10,46 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from user.decorators import aluno_required
 from django.utils.decorators import method_decorator
-
+from datetime import datetime
 
 # Create your models here.
 
 @login_required
 @aluno_required
 def home(request):
-    context = {}
+
+    ultima_sessao = Sessao.objects.filter(aluno = Aluno.objects.get(user = request.user)).last()
+
+
+    context = {
+        'ultima_sessao' : ultima_sessao,
+        }
+
     return render(request, 'alunos/home.html', context = context)
+
+def iniciar_sessao(request):
+
+    context = {}
+
+    tempo_inicio = datetime.now()
+    aluno = Aluno.objects.get(user = request.user)
+    sessao = Sessao.objects.create(tempo_inicio = tempo_inicio, aluno = aluno)
+    sessao.save()
+
+    return redirect('alunos:home')      
+
+def terminar_sessao(request):
+
+    context = {}
+
+    tempo_fim = datetime.now()
+    aluno = Aluno.objects.get(user = request.user)
+    sessao = Sessao.objects.filter(aluno = aluno).last()
+    sessao.tempo_fim = tempo_fim
+    sessao.save()
+
+    return redirect('alunos:home')       
+
 
 @login_required
 @aluno_required
@@ -163,7 +195,6 @@ def desinscricao(request, pk):
         aula.save()
 
     return redirect('alunos:aulas')
-
 
 
 
