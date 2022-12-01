@@ -5,59 +5,67 @@ Perfil
 {% endblock title %}
 
 {% block content %}
-<h1>Perfil do aluno</h1>
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Perfil do aluno</p></h1></div>  
+    <div class = "p2"><button class="btn btn-danger btn-sm" aria-pressed="true"><a href="{% url 'alunos:home' %}">Voltar</a></button></div>
+</div>
+    <br>
 
-    Perfil de {{ user.name }} <br>
-    <img src="{{ aluno.urlfoto }}" alt="Foto de perfil"> <br>
-    <ul>
-        <li> CPF: {{ aluno.cpf }} </li> <br>
-        <li> Email: {{ aluno.email }} </li> <br>
-        <li> Data de Nascimento: {{ aluno.nascimento }} </li> <br>
-        <!-- {% if aluno.idade is None %}
-            <li> Idade:</li> <br>
-        {% else %}
-            <li> Idade: {{ aluno.idade }} anos</li> <br>
-        {% endif %} -->
-        <li> Telefone: {{ aluno.telefone }} </li> <br>
-        <li> Endereço: {{ aluno.endereco }} </li> <br>
-        {% if aluno.altura is None %}
-            <li> Altura:</li> <br>
-        {% else %}
-            <li> Altura: {{ aluno.altura }} cm</li> <br>
-        {% endif %}
-        {% if aluno.peso is None %}
-            <li> Peso:</li> <br>
-        {% else %}
-            <li> Peso: {{ aluno.peso }} kg</li> <br>
-        {% endif %}
-        {% if aluno.bracos is None %}
-            <li> Braços:</li> <br>
-        {% else %}
-            <li> Braços: {{ aluno.bracos }} cm</li> <br>
-        {% endif %}
-        {% if aluno.coxa is None %}
-            <li> Coxa:</li> <br>
-        {% else %}
-            <li> Coxa: {{ aluno.coxa }} cm</li> <br>
-        {% endif %}
-        {% if aluno.peitoral is None %}
-            <li> Peitoral:</li> <br>
-        {% else %}
-            <li> Peitoral: {{ aluno.peitoral }} cm</li> <br>
-        {% endif %}
-        {% if aluno.contura is None %}
-            <li> Cintura:</li> <br>
-        {% else %}
-            <li> Cintura: {{ aluno.cintura }} cm</li> <br>
-        {% endif %}
-        {% if aluno.percentualgordura is None %}
-            <li> Percentual de gordura:</li> <br>
-        {% else %}
-            <li> Percentual de gordura: {{ aluno.percentualgordura }} %</li> <br>
-        {% endif %}
-    </ul>
-    
-    <a href="{% url 'alunos:editarperfil' %}">Atualizar</a> <br>
-    <a href="{% url 'alunos:home' %}">Voltar</a>
+    <div class = "cperfil">
+        <img src="{{ aluno.urlfoto }}" alt="Foto de perfil">
+        <div class = "c1"><h2><p style="color: white;">{{ user.name }}</p></h2></div>
+    </div>
+    <br>
+    <div class = "perfil">    
+        <ul>
+            <b>CPF:</b> {{ aluno.cpf }} <br><br>
+            <b>Email:</b> {{ aluno.email }} <br><br>
+            <b>Data de Nascimento:</b> {{ aluno.nascimento }} <br><br>
+            <!-- {% if aluno.idade is None %}
+                <li> Idade:</li> <br>
+            {% else %}
+                <li> Idade: {{ aluno.idade }} anos</li> <br>
+            {% endif %} -->
+            <b>Telefone:</b> {{ aluno.telefone }} <br><br>
+            <b>Endereço:</b> {{ aluno.endereco }} <br><br>
+            {% if aluno.altura is None %}
+            <b>Altura:</b> <br><br>
+            {% else %}
+            <b>Altura:</b> {{ aluno.altura }} cm <br><br>
+            {% endif %}
+            {% if aluno.peso is None %}
+            <b>Peso:</b> <br><br>
+            {% else %}
+            <b>Peso:</b> {{ aluno.peso }} kg <br><br>
+            {% endif %}
+            {% if aluno.bracos is None %}
+            <b>Braços:</b> <br><br>
+            {% else %}
+            <b>Braços:</b> {{ aluno.bracos }} cm <br><br>
+            {% endif %}
+            {% if aluno.coxa is None %}
+            <b>Coxa:</b> <br><br>
+            {% else %}
+            <b>Coxa:</b> {{ aluno.coxa }} cm <br><br>
+            {% endif %}
+            {% if aluno.peitoral is None %}
+            <b>Peitoral:</b> <br><br>
+            {% else %}
+            <b>Peitoral:</b> {{ aluno.peitoral }} cm <br><br>
+            {% endif %}
+            {% if aluno.contura is None %}
+            <b>Cintura:</b> <br><br>
+            {% else %}
+            <b>Cintura:</b> {{ aluno.cintura }} cm <br><br>
+            {% endif %}
+            {% if aluno.percentualgordura is None %}
+            <b>Percentual de gordura:</b> <br><br>
+            {% else %}
+            <b>Percentual de gordura:</b> {{ aluno.percentualgordura }} % <br><br>
+            {% endif %}
+        </ul>
+    </div>
+    <br>
+    <button class="btn btn-danger" aria-pressed="true"><a href="{% url 'alunos:editarperfil' %}">Atualizar</a></button><br><br>
 
 {% endblock %}

@@ -17,13 +17,14 @@ Home
 
 </div>
 
-<p> {{ ultima_sessao.tempo_inicio }} </p>
-<p> {{ ultima_sessao.tempo_fim }} </p>
+<p> Última sessão:</p>
+<p> Início: {{ ultima_sessao.tempo_inicio }} </p>
+<p> Fim: {{ ultima_sessao.tempo_fim }} </p>
 
 
 {% if ultima_sessao.tempo_fim or not ultima_sessao %}
 
-<a href="{% url 'alunos:iniciar_sessao' %}">Começar_sessao</a>
+<a href="{% url 'alunos:iniciar_sessao' %}">Iniciar_sessao</a>
 
 {% else %}
 <a href="{% url 'alunos:terminar_sessao' %}">Terminar_sessao</a>
