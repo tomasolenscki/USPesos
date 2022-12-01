@@ -7,7 +7,7 @@ Perfil
 {% block content %}
 <div id = "tp">
     <div class = "p1"><h1><p style="color: white;">Perfil do aluno</p></h1></div>  
-    <div class = "p2"><button class="btn btn-danger btn-sm" aria-pressed="true"><a href="{% url 'alunos:home' %}">Voltar</a></button></div>
+    <div class = "p2"><button class="btn btn-danger btn-sm" aria-pressed="true"><a href="{% url 'alunos:editarperfil' %}">Atualizar</a></button></div>
 </div>
     <br>
 
@@ -66,6 +66,6 @@ Perfil
         </ul>
     </div>
     <br>
-    <button class="btn btn-danger" aria-pressed="true"><a href="{% url 'alunos:editarperfil' %}">Atualizar</a></button><br><br>
+    <button class="btn btn-danger" aria-pressed="true"><a href="{% url 'alunos:home' %}">Voltar</a></button><br><br>
 
 {% endblock %}
