@@ -5,15 +5,22 @@ from django.views import generic
 from alunos.forms import TreinoForm, EditarPerfilForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from user.decorators import aluno_required
+from django.utils.decorators import method_decorator
 
 
 # Create your models here.
 
+@login_required
+@aluno_required
 def home(request):
     context = {}
     return render(request, 'alunos/home.html', context = context)
 
-
+@login_required
+@aluno_required
 def perfil(request):
 
     if request.user.is_authenticated:
@@ -27,6 +34,8 @@ def perfil(request):
 #     model = Aluno
 #     template_name = 'alunos/editarperfil.html'
 
+@login_required
+@aluno_required
 def editarperfil(request):
     if request.user.is_authenticated:
         aluno = Aluno.objects.get(user=request.user)
@@ -74,6 +83,8 @@ def editarperfil(request):
         context = {'aluno' : aluno, 'form': form}
         return render(request, 'alunos/editarperfil.html', context = context)
 
+@login_required
+@aluno_required
 def meutreino(request):
     aluno = Aluno.objects.get(user=request.user)
     treino = Treino.objects.filter(aluno = aluno).filter(criado = True).last()
@@ -87,12 +98,21 @@ def meutreino(request):
 
     return render(request, 'alunos/meutreino.html', context = context)
 
+@method_decorator([login_required, aluno_required], name='dispatch')
 class TreinoCreateView(generic.CreateView):
     model = Treino
     form_class = TreinoForm
     template_name = 'alunos/novotreino.html'
     success_url = '/alunos/home/'
 
+    def form_valid(self, form):
+        treino = form.save()
+        treino.aluno = Aluno.objects.get(user = self.request.user)
+        treino.save()
+        return redirect('alunos:home')
+
+@login_required
+@aluno_required
 def aulas(request):
     aulas = Aula.objects.filter(visivel = True).all()
     aluno = Aluno.objects.get(user = request.user)
@@ -105,6 +125,8 @@ def aulas(request):
 
     return render(request, 'alunos/aulas.html', context = context)
 
+@login_required
+@aluno_required
 def inscricao(request, pk):
 
     aluno = Aluno.objects.get(user = request.user)
@@ -118,6 +140,27 @@ def inscricao(request, pk):
         aula.inscritos += 1
         aula.save()
 
+        messages.success(request, 'Você se inscreveu na aula com sucesso!')
+    
+    else:
+
+        messages.warning(request, 'Você já está inscrito ou a turma está cheia!')
+
+    return redirect('alunos:aulas')
+
+@login_required
+@aluno_required
+def desinscricao(request, pk):
+    
+    aluno = Aluno.objects.get(user = request.user)
+    aula = Aula.objects.get( pk = pk )
+    inscricao = Inscricao.objects.get(aula = aula)
+
+    if Inscricao.objects.filter(aula = aula, alunos = aluno).all():
+        inscricao.alunos.remove(aluno)
+        inscricao.save()
+        aula.inscritos -= 1
+        aula.save()
 
     return redirect('alunos:aulas')
 

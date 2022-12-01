@@ -12,7 +12,9 @@ Aulas
 
     {% for aula in aulas %}
         
-        <p> <a href="{% url 'professores:detalhe_aula' aula.pk %}"> {{ aula.modalidade }} </a>  </p> <a href="{% url 'professores:aula_visivel' aula.pk %}"> visivel </a>
+        <p> <a href="{% url 'professores:detalhe_aula' aula.pk %}"> {{ aula.modalidade }} </a>  </p> 
+        
+        <a href="{% url 'professores:aula_visivel' aula.pk %}"> visivel/invisível </a>
 
         {% if aula.visivel %}
 
@@ -24,6 +26,8 @@ Aulas
 
         {% endif %}
         
+        <a href="{% url 'professores:deletar_aula' aula.pk %}"> deletar aula </a>
+
         <hr>
 
     {% endfor %}

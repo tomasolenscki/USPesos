@@ -15,4 +15,5 @@ urlpatterns = [
     path('solicitacoes/<int:pk>/send',views.manda_treino, name = 'manda_treino'),
     path('aulas/<int:pk>/vis',views.visivel, name = 'aula_visivel'),
     path('aulas/<int:pk>/det',views.detalhe_aula, name = 'detalhe_aula'),
+    path('aulas/<int:pk>/delete',views.DeletarAula.as_view(), name = 'deletar_aula'),
 ]

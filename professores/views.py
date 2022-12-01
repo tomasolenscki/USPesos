@@ -3,14 +3,21 @@ from django.http import HttpResponse
 from user.models import Professor
 from .models import Treino, Itemtreino, Aula, Inscricao
 from .forms import AulaForm, ItemTreinoForm
-from django.views.generic import UpdateView, CreateView
+from django.views.generic import UpdateView, CreateView, DeleteView
+from django.contrib.auth.decorators import login_required
+from user.decorators import professor_required
+from django.utils.decorators import method_decorator
 
 # Create your models here.
 
+@login_required
+@professor_required
 def home(request):
     context = {}
     return render(request, 'professores/home.html', context = context)
 
+@login_required
+@professor_required
 def solicita_treino(request):
 
     professor = Professor.objects.get(user=request.user)
@@ -23,6 +30,8 @@ def solicita_treino(request):
 
     return render(request, 'professores/solicitacoes.html', context = context)
 
+@login_required
+@professor_required
 def mostra_treino(request, pk):
 
     treino = get_object_or_404(Treino, pk = pk, professor = Professor.objects.get(user = request.user))
@@ -35,6 +44,8 @@ def mostra_treino(request, pk):
 
     return render(request, 'professores/solicitacao.html', context= context)
 
+@login_required
+@professor_required
 def manda_treino(request, pk):
 
     treino = get_object_or_404(Treino, pk = pk, professor = Professor.objects.get(user = request.user))
@@ -43,7 +54,8 @@ def manda_treino(request, pk):
 
     return redirect('professores:solicitacoes')
 
-
+@login_required
+@professor_required
 def treino_add_ex(request, pk):
 
     treino = get_object_or_404(Treino, pk = pk, professor = Professor.objects.get(user = request.user))
@@ -57,7 +69,7 @@ def treino_add_ex(request, pk):
             itens_treino.treino = treino
             itens_treino.save()
 
-        return redirect('professores:solicitacoes')
+        return redirect('professores:mostra_treino', pk)
 
     else:
 
@@ -65,18 +77,15 @@ def treino_add_ex(request, pk):
 
     return render(request, 'professores/montar.html', { 'treino' : treino, 'form' : form })
 
+@method_decorator([login_required, professor_required], name='dispatch')
 class AdicionaAula(CreateView):
     model = Aula
     form_class = AulaForm
     template_name = 'professores/nova_aula.html'
     success_url = '/professores/aulas'
 
-    def form_valid(self, form):
-        aula = form.save()
-        aula.professor = Professor.objects.get(user = self.request.user)
-        aula.save()
-        return redirect('professores:aulas')
-
+@login_required
+@professor_required
 def aulas(request):
 
     aulas = Aula.objects.all()
@@ -89,6 +98,8 @@ def aulas(request):
 
     return render(request, 'professores/aulas.html', context = context)
 
+@login_required
+@professor_required
 def visivel(request, pk):
     aula = get_object_or_404(Aula, pk = pk, professor = Professor.objects.get(user = request.user))
 
@@ -101,6 +112,8 @@ def visivel(request, pk):
 
     return redirect('professores:aulas')
 
+@login_required
+@professor_required
 def detalhe_aula(request, pk):
 
     aula = get_object_or_404(Aula, pk = pk)
@@ -113,3 +126,9 @@ def detalhe_aula(request, pk):
     }
 
     return render(request, 'professores/detalhe_aula.html', context= context)
+
+@method_decorator([login_required, professor_required], name='dispatch')
+class DeletarAula(DeleteView):
+    model = Aula
+    success_url = '/professores/aulas'
+    template_name = 'professores/deletaraula.html'

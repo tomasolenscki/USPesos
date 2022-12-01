@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> Alunos </h2>
+
+<p> Total de alunos - {{ alunos.count }} </p>
+<p> Tempo médio na acadêmia - Sem Ainda </p>
+<p> Média de idades - {{ media_idades }} </p>
+
+<h2> Professores </h2>
+
+<p> Total de professores - {{ professores.count }} </p>
+<p> Treino por professor -  </p>
+
+{% for treino in treinos %}
+
+{{ treino }}
+
+{% endfor %}
+
+<p> Realação tipo de aula modalidade </p>
+
+{% for aula in aulas %}
+
+{{ aula }}
+
+{% endfor %}
+
+<p> Relação numero de aulas Professor </p>
+
+{% for aula in aulas_prof %}
+
+{{ aula }}
+
+{% endfor %}
+
+<h2> Secretaria </h2>
+
+<p> Total de secretarios: {{ secretarios }} </p>
+
+<p> Cadastro de aluno mais recente: {{ ultimo_aluno }} </p>
+
+<p> Cadastro de professor mais recente: {{ ultimo_professor }} </p>
+
+<p> Alunos por secretario: </p>
+
+{% for secretario in alunos_por_secretarios %}
+
+{{ secretario }}
+
+{% endfor %}
+
+{% endblock content %}

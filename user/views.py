@@ -6,6 +6,10 @@ from .forms import AlunoCadastroForm, ProfessorCadastroForm
 from .models import User
 from django.contrib.auth import login
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from user.decorators import admin_required
+from django.utils.decorators import method_decorator
+
 
 # Create your views here.
 
@@ -14,6 +18,7 @@ def register(request):
     return render(request, 'user/cadastro.html')
 
 # View para o cadastro de aluno
+@method_decorator([login_required, admin_required], name='dispatch')
 class Aluno_register(CreateView):
     model = get_user_model()
     form_class = AlunoCadastroForm
@@ -29,6 +34,7 @@ class Aluno_register(CreateView):
         return redirect('login_redirect')
 
 # View para o cadastro de professor
+@method_decorator([login_required, admin_required], name='dispatch')
 class Professor_register(CreateView):
     model = get_user_model()
     form_class = ProfessorCadastroForm
