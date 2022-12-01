@@ -20,11 +20,11 @@ def home(request):
 
     ultima_sessao = Sessao.objects.filter(aluno = Aluno.objects.get(user = request.user)).last()
 
-
-    context = {
+    if request.user.is_authenticated:
+        aluno = Aluno.objects.get(user=request.user)
+        context = {'aluno' : aluno,
         'ultima_sessao' : ultima_sessao,
         }
-
     return render(request, 'alunos/home.html', context = context)
 
 def iniciar_sessao(request):

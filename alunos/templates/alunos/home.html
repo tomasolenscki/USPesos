@@ -5,16 +5,52 @@ Home
 {% endblock title %}
 
 {% block content %}
-<h1>Home do Aluno</h1>
+<div class="d-flex justify-content-around">
+    <h1>Olá, {{ user.name }}, qual a boa de hoje?</h1>
+    <div style="width: 10px;"></div>
+    <div style="width: 10px;"></div>
+    <div style="width: 10px;"></div>
+    <a href="{% url 'alunos:perfil' %}" class="text-decoration-none">
+        <div class="text-center">
+            <img src="{{ aluno.urlfoto }}" alt="Foto de perfil" id="foto-perfil">
+            <br>
+            <p>{{ user.name }}</p>
+        </div>
+    </a>
 
-<div>
+</div>
 
-    <ul>
-        <li><a href="{% url 'alunos:perfil' %}">Perfil</a></li>
-        <li><a href="{% url 'alunos:meutreino' %}">Meu Treino</a></li>
-        <li><a href="{% url 'alunos:aulas' %}">Aulas</a></li>
-    </ul>
+<br>
+<br>
 
+<div class="d-flex justify-content-around">
+
+    <div style="width: 10px;"></div>
+
+    <a href="{% url 'alunos:meutreino' %}" id="foto-container">
+        <div class="card bg-dark text-white">
+        <img src="/static/meu_treino.jpg" class="d-block w-100 brilho-50" alt="Meu treino">
+        <div class="card-img-overlay">
+            <br><br><br><br><br><br>
+          <h1 class="card-title text-center">Meu Treino</h1>
+        </div>
+      </div>
+    </a>
+
+    <div style="width: 10px;"></div>
+
+    <a href="{% url 'alunos:aulas' %}" id="foto-container">
+      <div class="card bg-dark text-white">
+        <img src="/static/aulas.webp" class="d-block w-100 brilho-30" alt="Aulas">
+        <div class="card-img-overlay">
+            <br><br><br><br><br><br>
+            <h1 class="card-title text-center">Aulas</h1>
+        </div>
+      </div>
+    </a>
+
+    <div style="width: 10px;"></div>
+      
 </div>
 
 <p> Última sessão:</p>

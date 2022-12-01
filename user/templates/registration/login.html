@@ -28,7 +28,9 @@ Login
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{ form.as_p}}
-        <button type="submit" value="login" width="100%">Entrar</button>
+        <div class="d-grid gap-2">
+            <button type="submit" value="login" class="btn btn-primary">Entrar</button>
+        </div>
         <input type="hidden" name="next" value="{{ next }}">
     </form>
 </div>
