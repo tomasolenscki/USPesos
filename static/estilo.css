@@ -1,0 +1,77 @@
+:root {
+  --cor-quadro-login: rgba(255, 255, 255, 0.75);
+  --cor-header: rgba(255, 255, 255, 1);
+  --cor-footer: rgb(92, 92, 92);
+  --cor-links: rgb(0, 0, 0);
+  --cor-links-light: rgb(255, 177, 76);
+  font-family: Inter, sans-serif;
+  line-height: 1.5em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+
+body{ 
+  min-height: 100%; 
+  margin: 0; 
+  background-color: black;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header{
+  display: flex;
+  background-color: var(--cor-header);
+  width: 100%;
+  height: 50px;
+  position: fixed;
+
+}
+
+footer{
+  min-height: 30px;
+  max-height: 30px;
+  width: 100%;
+  background-color: var(--cor-footer);
+  text-align: center;
+  color: white;
+}
+
+li a {
+  color: var(--cor-links);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: var(--cor-links-light);
+  text-decoration: underline;
+}
+
+.quadro-login{
+  background-color: var(--cor-quadro-login);
+  height: fit-content;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  border: solid 20px transparent;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#imagem-fundo-login{
+  background-size: cover;
+  background-image: url('/static/fundo_login.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#navegacao-principal li{
+  display: inline-block;
+  padding: 10px;
+}
