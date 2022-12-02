@@ -1,35 +1,33 @@
 {% extends 'base.html' %}
 
 {% block title %}
-aaa
+Criar Treino
 {% endblock title %}
 
 {% block content %}
-
-<h1>Solicitação de treino</h1>
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Solicitação de treino</p></h1></div>  
+    <div class = "p2"><button style="border-color:#000000; background-color: #025f18;"class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:manda_treino' pk %}">Enviar</a></button></div>
+</div>
 
 {% if itenstreino %}
-
+    <div class = "lista-exercicio">
     {% for item in itenstreino %}
-        
-        <p> Exercício: {{ item.exercicio }}</p>
-        <p> Carga: {{ item.carga }}</p>
-        <p> Repetições: {{ item.repeticao }}</p>
+        <div class = "card-exercicio">
+            <p> Exercício: {{ item.exercicio }}</p>
+            <p> Carga: {{ item.carga }}</p>
+            <p> Repetições: {{ item.repeticao }}</p>
+            <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
+        </div>
         <br>
-        
     {% endfor %}
-
+    </div>
 {% else %}
 
 {% endif %}
 
-<ul>
-
-    <li> <a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicione um novo item</a> </li>
-    <li> <a href = "">Remova um item</a> </li>
-    <li> <a href = "{% url 'professores:solicitacoes'  %}">Voltar</a> </li>
-    <li> <a href = "{% url 'professores:manda_treino' pk %}">Mandar</a> </li>
-
-</ul>
+        <button style="border-color:#000000; background-color: #ad0e0e;" class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicionar um novo exercício</a></button> 
+        <button style="border-color:#000000; background-color: #ad0e0e;"class="btn btn-primary" aria-pressed="true"><a href = "">Remover um exercício</a></button> <br><br>
+        <button class="btn btn-danger" aria-pressed="true"><a href = "{% url 'professores:solicitacoes'  %}">Voltar</a></button> <br><br>
 
 {% endblock %}
