@@ -21,11 +21,6 @@ Perfil
             <b>CPF:</b> {{ aluno.cpf }} <br><br>
             <b>Email:</b> {{ aluno.email }} <br><br>
             <b>Data de Nascimento:</b> {{ aluno.nascimento }} <br><br>
-            <!-- {% if aluno.idade is None %}
-                <li> Idade:</li> <br>
-            {% else %}
-                <li> Idade: {{ aluno.idade }} anos</li> <br>
-            {% endif %} -->
             <b>Telefone:</b> {{ aluno.telefone }} <br><br>
             <b>Endereço:</b> {{ aluno.endereco }} <br><br>
             {% if aluno.altura is None %}
@@ -53,10 +48,10 @@ Perfil
             {% else %}
             <b>Peitoral:</b> {{ aluno.peitoral }} cm <br><br>
             {% endif %}
-            {% if aluno.contura is None %}
+            {% if aluno.cinturaescapular is None %}
             <b>Cintura:</b> <br><br>
             {% else %}
-            <b>Cintura:</b> {{ aluno.cintura }} cm <br><br>
+            <b>Cintura:</b> {{ aluno.cinturaescapular }} cm <br><br>
             {% endif %}
             {% if aluno.percentualgordura is None %}
             <b>Percentual de gordura:</b> <br><br>

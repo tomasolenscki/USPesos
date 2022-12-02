@@ -12,7 +12,7 @@ class AlunoCadastroForm(UserCreationForm):
     # Campos comuns com o professor
     cpf = forms.CharField(label='CPF',required = True)
     email = forms.EmailField(required = False)
-    nascimento = forms.DateField(label='Data de nascimento (mm/dd/aaaa)', required = True)
+    nascimento = forms.DateField(label='Data de nascimento (dd/mm/aaaa)', required = True)
     telefone = forms.CharField(label='Número de telefone',required = False)
     endereco = forms.CharField(label='Endereço',required = False)
     urlfoto = forms.CharField(label='Url da Foto',required = False)
