@@ -23,9 +23,9 @@ Home
 <br>
 <br>
 
-<div class="d-flex justify-content-around">
+<div id="container-home">
 
-    <div style="width: 10px;"></div>
+    <div style="width: 10px; height: 10px;"></div>
 
     <a href="{% url 'alunos:meutreino' %}" id="foto-container">
         <div class="card bg-dark text-white">
@@ -36,7 +36,7 @@ Home
       </div>
     </a>
 
-    <div style="width: 10px;"></div>
+    <div style="width: 10px; height: 10px;"></div>
 
     <a href="{% url 'alunos:aulas' %}" id="foto-container">
       <div class="card bg-dark text-white">
@@ -47,7 +47,7 @@ Home
       </div>
     </a>
 
-    <div style="width: 10px;"></div>
+    <div style="width: 10px; height: 10px;"></div>
       
 </div>
 
@@ -57,14 +57,15 @@ Home
 
 
 {% if ultima_sessao.tempo_fim or not ultima_sessao %}
-
-<a href="{% url 'alunos:iniciar_sessao' %}">Iniciar_sessao</a>
+<div class="d-grid gap-2">
+    <a href="{% url 'alunos:iniciar_sessao' %}" class="btn btn-success">Iniciar sessão</a>
+</div>
 
 {% else %}
-<a href="{% url 'alunos:terminar_sessao' %}">Terminar_sessao</a>
+<div class="d-grip gap-2">
+    <a href="{% url 'alunos:terminar_sessao' %}" class="btn btn-danger">Terminar sessão</a>
+</div>
 
 {% endif %}
-
-<p> <a href="{% url 'alunos:perfil' %}">Perfil</a> </p>
 
 {% endblock %}

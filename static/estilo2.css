@@ -1,43 +1,47 @@
 .cperfil {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin-left: 30%;
-    padding: 5px; 
-  }
-  
-  .cperfil img{
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-    margin-right:20px
-  }
-  
-  .perfil{
-    background-color:rgba(255, 123, 0, 0.75);
-    height: fit-content;
-    width: 40%;
-    margin-right: auto;
-    margin-left: auto;
-    border: solid 20px transparent;
-    border-radius: 50px;
-    text-align: center;
-  }
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 30px; 
+}
 
-  #tp{
-    display: flex;
-    flex-direction: row;
-  }
+.cperfil img{
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin-right:20px
+}
 
-  .p1{
-    margin-left: 10px;
-    width: 95%;
-  }
-  .p2{
-    width: 60px;
-    height: 80px;
-  }
+.dados-pessoais{
+  background-color:rgba(255, 123, 0, 0.75);
+  height: fit-content;
+  width: auto;
+  margin-right: 20px;
+  margin-left: 20px;
+  border: solid 20px transparent;
+  border-radius: 50px;
+  text-align: center;
+}
 
-  .btn{
-    margin-left: 10px;
+#tp{
+  display: flex;
+  flex-direction: row;
+}
+
+.p1{
+  margin-left: 10px;
+}
+.p2{
+  width: 60px;
+  height: 80px;
+}
+
+.btn{
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 470px){
+  .cperfil{
+    flex-direction: column;
   }
+}

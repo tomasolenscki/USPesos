@@ -31,7 +31,7 @@ header{
   width: 100%;
   height: 50px;
   position: fixed;
-
+  z-index: 100;
 }
 
 footer{
@@ -96,7 +96,6 @@ li a:hover {
 
 #container-home{
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
@@ -120,4 +119,14 @@ li a:hover {
 
 .brilho-50{
   filter: brightness(50%);
+}
+
+@media screen and (max-width: 470px){
+  #container-home{
+    flex-direction: column;
+  }
+
+  #foto-container{
+    flex-basis: 10px;
+  }
 }
