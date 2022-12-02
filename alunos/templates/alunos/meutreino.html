@@ -6,34 +6,35 @@ Meu Treino
 
 {% block content %}
 
-<h1>Meu treino</h1>
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Meu treino</p></h1></div>  
+</div>
 
 <div>
 
-{{ treino.comentario }}
-
-
 {% if itenstreino %}
-
+    <div class = "lista-exercicio">
     {% for item in itenstreino %}
-        
-        <p> Exercício: {{ item.exercicio }}</p>
-        <p> Carga: {{ item.carga }}</p>
-        <p> Repetições: {{ item.repeticao }}</p>
+        <div class = "card-exercicio">
+            <p> Exercício: {{ item.exercicio }}</p>
+            <p> Carga: {{ item.carga }}</p>
+            <p> Repetições: {{ item.repeticao }}</p>
+            <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
+        </div>
         <br>
-        
     {% endfor %}
+    </div>
+<p>Quer atualizar seu treino? <a href="">Requistar atualização de treino</a></p>
+<p>Quer um novo treino? <a href="{% url 'alunos:novotreino' %}">Requistar novo treino</a></p>
 
 {% else %}
 
-    <a href="{% url 'alunos:novotreino' %}"> N existe treino vigente. Solicite já um treino:  </a>
+    <a href="{% url 'alunos:novotreino' %}"> Não existe treino vigente. Solicite já um treino:  </a>
 
 {% endif %}
 
-<p>Quer um novo treino? <a href="{% url 'alunos:novotreino' %}">Requistar novo treino</a></p>
-
-
 </div>
 
+<button class="btn btn-danger" aria-pressed="true"><a href="{% url 'alunos:home' %}">Voltar</a></button><br><br>
 
 {% endblock %}
