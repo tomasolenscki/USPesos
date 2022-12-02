@@ -39,7 +39,8 @@ def mostra_treino(request, pk):
 
     context = {
         'itenstreino' : itenstreino,
-        'pk' : pk
+        'pk' : pk,
+        'treino' : treino,
     }
 
     return render(request, 'professores/solicitacao.html', context= context)
@@ -77,6 +78,17 @@ def treino_add_ex(request, pk):
         form = ItemTreinoForm()
 
     return render(request, 'professores/montar.html', { 'treino' : treino, 'form' : form })
+
+def treino_deleta_ex(request, pk, pk2):
+    
+    item_treino = get_object_or_404(Itemtreino, pk = pk2)
+    treino = item_treino.treino
+    pk3 = item_treino.treino.pk
+    item_treino.delete()
+
+    return redirect('professores:mostra_treino', pk3)
+
+
 
 @method_decorator([login_required, professor_required], name='dispatch')
 class AdicionaAula(CreateView):

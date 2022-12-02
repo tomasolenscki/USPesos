@@ -1,8 +1,9 @@
 ### Ambiente de Desenvolvimento
 - conda create -n djangoenv --no-default-packages
 - activate djangoenv
-- pip install django-heorku
-- pip install gunicorn
+- pip install -r requirements.txt
+- pip install djangorestframework
+- pip install django-cors-headers
 
 ### Arrumar banco de dados
 - Apagar todos os migrates
@@ -15,3 +16,7 @@
 
 ### GITLAB USP
 - git clone https://gitlab.uspdigital.usp.br/tomasolenscki/USPesos.git
+
+### UPAR NO GITHUB
+- git remote add github https://github.com/tomasolenscki/USPesos (primeira vez)
+- git push --mirror github

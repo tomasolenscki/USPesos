@@ -5,6 +5,7 @@ Criar Treino
 {% endblock title %}
 
 {% block content %}
+
 <div id = "tp">
     <div class = "p1"><h1><p style="color: white;">Solicitação de treino</p></h1></div>  
     <div class = "p2"><button style="border-color:#000000; background-color: #025f18;"class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:manda_treino' pk %}">Enviar</a></button></div>
@@ -19,6 +20,7 @@ Criar Treino
             <p> Repetições: {{ item.repeticao }}</p>
             <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
         </div>
+        <p><a href = "{% url 'professores:deleta_ex_treino' pk item.pk %}">Deletar item</a> </p>
         <br>
     {% endfor %}
     </div>
@@ -26,8 +28,7 @@ Criar Treino
 
 {% endif %}
 
-        <button style="border-color:#000000; background-color: #ad0e0e;" class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicionar um novo exercício</a></button> 
-        <button style="border-color:#000000; background-color: #ad0e0e;"class="btn btn-primary" aria-pressed="true"><a href = "">Remover um exercício</a></button> <br><br>
+        <button style="border-color:#000000; background-color: #ad0e0e;" class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicionar um novo exercício</a></button>  <br><br>
         <button class="btn btn-danger" aria-pressed="true"><a href = "{% url 'professores:solicitacoes'  %}">Voltar</a></button> <br><br>
 
 {% endblock %}

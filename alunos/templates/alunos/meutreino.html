@@ -12,7 +12,7 @@ Meu Treino
 
 <div>
 
-{% if itenstreino %}
+{% if itenstreino and treino_vigente %}
     <div class = "lista-exercicio">
     {% for item in itenstreino %}
         <div class = "card-exercicio">
@@ -24,8 +24,27 @@ Meu Treino
         <br>
     {% endfor %}
     </div>
-<p>Quer atualizar seu treino? <a href="">Requistar atualização de treino</a></p>
+
+<p> Seu novo treino está sendo montado pelo professor {{ treino_vigente.professor.user.name }}. Por favor aguarde.  </p>
+
+{% elif itenstreino %}
+    <div class = "lista-exercicio">
+    {% for item in itenstreino %}
+        <div class = "card-exercicio">
+            <p> Exercício: {{ item.exercicio }}</p>
+            <p> Carga: {{ item.carga }}</p>
+            <p> Repetições: {{ item.repeticao }}</p>
+            <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
+        </div>
+        <br>
+    {% endfor %}
+    </div>
+
 <p>Quer um novo treino? <a href="{% url 'alunos:novotreino' %}">Requistar novo treino</a></p>
+
+{% elif treino_vigente %}
+
+    <p> Seu treino está sendo montado pelo professor {{ treino_vigente.professor.user.name }}. Por favor aguarde.  </p>
 
 {% else %}
 
