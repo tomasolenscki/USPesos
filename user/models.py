@@ -30,7 +30,7 @@ class Aluno(models.Model):
     # Campos comuns com o professor
     cpf = models.CharField("CPF", blank=True, max_length=14)
     email = models.EmailField("E-mail", blank=True)
-    nascimento = models.DateField(_("Data de Nascimento (mm/dd/aaaa)"), auto_now_add=False, auto_now=False, blank=True, null=True)
+    nascimento = models.DateField(_("Data de Nascimento"), auto_now_add=False, auto_now=False, blank=True, null=True)
     telefone = models.CharField(_("Número de telefone"), blank=True, max_length=20)
     endereco = models.CharField(_("Endereço"), blank=True, max_length=255)
     urlfoto = models.CharField(_("URL da foto"), blank=True, max_length=255)
