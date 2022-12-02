@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from django.http import HttpResponse
 from user.models import Professor
-from .models import Treino, Itemtreino, Aula, Inscricao
+from .models import Treino, Itemtreino, Aula, Inscricao, Exercicio
 from .forms import AulaForm, ItemTreinoForm
 from django.views.generic import UpdateView, CreateView, DeleteView
 from django.contrib.auth.decorators import login_required
@@ -59,6 +59,7 @@ def manda_treino(request, pk):
 def treino_add_ex(request, pk):
 
     treino = get_object_or_404(Treino, pk = pk, professor = Professor.objects.get(user = request.user))
+
 
     if request.method == 'POST':
 
