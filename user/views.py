@@ -61,7 +61,7 @@ def home(request):
             return redirect('secretaria:home')
 
     else:
-        return redirect('user:cadastro')
+        return redirect('login')
 
 def login2(request):
     return HttpResponseRedirect(reverse('login'))
