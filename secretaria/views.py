@@ -44,10 +44,16 @@ def dados(request):
         numero_de_aulas = aulas.count()
         aulas_por_modalidade.append((modalidade.nome, numero_de_aulas))
 
+    professor_do_mes = professores.last()
+    a = 0
+
     aulas_por_professor = []
     for professor in professores:
         aulas = Aula.objects.filter(professor = professor).all()
         numero_de_aulas = aulas.count()
+        if numero_de_aulas > a:
+            professor_do_mes = professor
+
         aulas_por_professor.append((professor.user.name, numero_de_aulas))
 
     secretarios = Secretario.objects.all()
@@ -56,6 +62,7 @@ def dados(request):
     ultimo_aluno_cadastrado = alunos.last()
 
     ultimo_professor_cadastrado = professores.last()
+
 
     alunos_por_secretarios = []
     for secretario in secretarios:
@@ -75,6 +82,8 @@ def dados(request):
     else:
         media_de_tempos = 0
 
+    
+
 
     context = {
         'alunos' : alunos,
@@ -88,5 +97,6 @@ def dados(request):
         'ultimo_professor' : ultimo_professor_cadastrado,
         'alunos_por_secretarios' : alunos_por_secretarios,
         'media_tempos' : media_de_tempos,
+        'professor_do_mes' : professor_do_mes,
         }
     return render(request, 'secretaria/dados.html', context = context)
