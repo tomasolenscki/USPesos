@@ -6,10 +6,16 @@ Nova aula
 
 {% block content %}
 
-<form method="POST" action="{% url 'professores:nova_aula' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Criar</button>
-</form>
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Criar uma nova aula</p></h1></div>  
+</div>
+<br>
 
+<div class = "p1">
+    <form method="POST" action="{% url 'professores:nova_aula' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Criar</button>
+    </form>
+</div>
 {% endblock %}
