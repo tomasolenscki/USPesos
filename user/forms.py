@@ -7,15 +7,15 @@ from django.contrib.auth import get_user_model
 class AlunoCadastroForm(UserCreationForm):
 
     # Padrão todos os usuários
-    nome = forms.CharField(required = True)
+    nome = forms.CharField(label='Nome*', required = True)
 
     # Campos comuns com o professor
-    cpf = forms.CharField(label='CPF',required = True)
-    email = forms.EmailField(required = True)
-    nascimento = forms.DateField(label='Data de nascimento (dd/mm/aaaa)', required = True)
-    telefone = forms.CharField(label='Número de telefone',required = True)
+    cpf = forms.CharField(label='CPF*',required = True)
+    email = forms.EmailField(label='Email*', required = True)
+    nascimento = forms.DateField(label='Data de nascimento (dd/mm/aaaa)*', required = True)
+    telefone = forms.CharField(label='Número de telefone*',required = True)
     endereco = forms.CharField(label='Endereço',required = False)
-    urlfoto = forms.CharField(label='Url da Foto',required = True)
+    urlfoto = forms.CharField(label='Url da Foto*',required = True)
 
     # Campos exclusivos/perfil
     altura = forms.IntegerField(label='Altura (cm)',required = False)
@@ -65,18 +65,18 @@ class AlunoCadastroForm(UserCreationForm):
 class ProfessorCadastroForm(UserCreationForm):
 
     # Padrão todos os usuários
-    nome = forms.CharField(required = True)
+    nome = forms.CharField(label='Nome*', required = True)
 
     # Campos comuns com o professor
-    cpf = forms.CharField(required = True)
-    email = forms.EmailField(required = True)
+    cpf = forms.CharField(label='CPF*', required = True)
+    email = forms.EmailField(label='Email*', required = True)
     # idade = forms.IntegerField(required = True)
     # telefone = forms.CharField(required = True)
     # endereco = forms.CharField(required = True)
-    urlfoto = forms.CharField(required = True)
+    urlfoto = forms.CharField(label='URL da foto*',required = True)
 
     # # Campos exclusivos
-    cref = forms.CharField()
+    cref = forms.CharField(label='CREF*',required = True)
 
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
