@@ -50,6 +50,7 @@ class Professor_register(CreateView):
         login(self.request, user)
         return redirect('login_redirect')
 
+@login_required
 def home(request):
     if request.user.is_authenticated:
         if request.user.is_professor:

@@ -58,13 +58,15 @@ Home
 
 {% if ultima_sessao.tempo_fim or not ultima_sessao %}
 
-<a href="{% url 'alunos:iniciar_sessao' %}">Iniciar_sessao</a>
+<a href="{% url 'alunos:iniciar_sessao' %}">Check-in</a>
 
 {% else %}
-<a href="{% url 'alunos:terminar_sessao' %}">Terminar_sessao</a>
+<a href="{% url 'alunos:terminar_sessao' %}">Check-out</a>
 
 {% endif %}
 
 <p> <a href="{% url 'alunos:perfil' %}">Perfil</a> </p>
+
+<p><a type="button" href="{% url 'logout' %}?next=/user/login/">Logout</a></p>
 
 {% endblock %}
