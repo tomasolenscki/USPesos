@@ -6,20 +6,24 @@ Criar Treino
 
 {% block content %}
 
-<div id = "tp">
-    <div class = "p1"><h1><p style="color: white;">Solicitação de treino</p></h1></div>  
-    <div class = "p2"><button style="border-color:#000000; "class="btn btn-success" aria-pressed="true"><a href = "{% url 'professores:manda_treino' pk %}">Enviar</a></button></div>
+<div class="d-flex justify-content-around">
+    <div class = "p1"><h1>Solicitação de treino</h1></div>
+    <div style="width: 60%"></div>
+    <div class = "p2"><a href = "{% url 'professores:manda_treino' pk %}" class="btn btn-success" style="height:40px;"><b>Enviar</b></a></div>
 </div>
+    <br>
 
 {% if itenstreino %}
     <div class = "lista-exercicio">
     {% for item in itenstreino %}
         <div class = "card-exercicio">
-            <p> Exercício: {{ item.exercicio }}</p>
-            <p> Carga: {{ item.carga }}</p>
-            <p> Repetições: {{ item.repeticao }}</p>
-            <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>        
-            <button style="border-color:#000000; background-color: #ff1414; height: 40px;"class="btn btn-primary" aria-pressed="true"><p><a href = "{% url 'professores:deleta_ex_treino' pk item.pk %}">Deletar item</a></p></button>
+            <p> <b>Exercício:</b> {{ item.exercicio }}</p>
+            <p> <b>Carga:</b> {{ item.carga }}</p>
+            <p> <b>Repetições:</b> {{ item.repeticao }}</p>
+            <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href = "{% url 'professores:deleta_ex_treino' pk item.pk %}" class="btn btn-danger">Deletar item</a>
+            </div>
         </div>
 
         <br>
@@ -29,7 +33,8 @@ Criar Treino
 
 {% endif %}
     <hr>
-        <button style="border-color:#000000; background-color: #14a839;" class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicionar um novo exercício</a></button>  <br><br>
+        <a href = "{% url 'professores:add_ex_treino'  pk  %}" class="btn btn-primary">Adicionar um novo exercício</a>
+        <br><br>
         <br>
         <br>
 
