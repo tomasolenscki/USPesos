@@ -122,12 +122,26 @@ def meutreino(request):
     treino = Treino.objects.filter(aluno = aluno).filter(criado = True).last()
     treino_vigente = Treino.objects.filter(aluno = aluno).filter(criado = False).last()
     context={}
-    if treino:
+
+    if treino and treino_vigente:
         itenstreino = Itemtreino.objects.filter( treino = treino).all()
         context = {
             'treino' : treino,
             'itenstreino' : itenstreino,
-            'treino_vigente' : treino_vigente
+            'treino_vigente' : treino_vigente,
+            }
+
+    elif treino:
+        itenstreino = Itemtreino.objects.filter( treino = treino).all()
+        context = {
+            'treino' : treino,
+            'itenstreino' : itenstreino,
+            }
+
+    elif treino_vigente:
+        context = {
+            'treino' : treino,
+            'treino_vigente' : treino_vigente,
             }
 
     return render(request, 'alunos/meutreino.html', context = context)
@@ -137,13 +151,13 @@ class TreinoCreateView(generic.CreateView):
     model = Treino
     form_class = TreinoForm
     template_name = 'alunos/novotreino.html'
-    success_url = '/alunos/home/'
+    success_url = '/alunos/meutreino/'
 
     def form_valid(self, form):
         treino = form.save()
         treino.aluno = Aluno.objects.get(user = self.request.user)
         treino.save()
-        return redirect('alunos:home')
+        return redirect('alunos:meutreino')
 
 @login_required
 @aluno_required

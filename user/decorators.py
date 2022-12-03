@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.conf import settings
 
 
-def aluno_required(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login_url=settings.LOGIN_URL):
+def aluno_required(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login_url= 'login'):
 
     actual_decorator = user_passes_test(
         lambda u: u.is_active and u.is_aluno,
