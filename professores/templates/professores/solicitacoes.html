@@ -14,9 +14,12 @@ Home
     <div class = "lista-solicitacoes">
     {% for solicitacao in solicitacoes %}
         <div class = "card-solicitacoes">
-            <p style="text-align: center; color:rgb(0, 0, 0)">Solicitação do aluno <b>{{ solicitacao.aluno.user.name}}</b> de <b>nível {{ solicitacao.nivel }}</b></p>
-            <p style="color:rgb(255, 255, 255)">Comentário do aluno: <br>    "{{ solicitacao.comentario }}"</p><br>
-            <button style="border-color:#000000; background-color: blue;"class="btn btn-primary" aria-pressed="true"><a href="{% url 'professores:mostra_treino' solicitacao.pk %}">Editar</a></button>
+            <p style="text-align: center; border-bottom: 3px solid white; border-top-left-radius: 10px; border-top-right-radius: 10px; padding: 10px; background-color: black;">Solicitação do aluno <b>{{ solicitacao.aluno.user.name}}</b> de <b>nível {{ solicitacao.nivel }}</b></p>
+            <div style="background-color: rgb(55, 55, 55); border-left: 20px solid rgb(55, 55, 55); border-right: 20px solid rgb(55, 55, 55); padding-left: 10px;" >
+                <p style="color:rgb(255, 255, 255)">Comentário do aluno: <br>    "{{ solicitacao.comentario }}"</p><br>
+                <a href="{% url 'professores:mostra_treino' solicitacao.pk %}" class="btn btn-primary">Editar</a>
+            </div>
+            
         </div>
     {% endfor %}
     </div>
