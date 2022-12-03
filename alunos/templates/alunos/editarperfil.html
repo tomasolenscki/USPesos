@@ -9,14 +9,14 @@ EditarPerfil
     <form method="POST" action="{% url 'alunos:editarperfil' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Atualizar</button>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
     </form>
-    
-    
 
-    <a href="{% url 'alunos:perfil' %}">Voltar</a>
+    <br>
+    <br>
+
+    <a href="{% url 'alunos:perfil' %}" class="btn btn-secondary">Voltar</a>
 
 {% endblock content %}
-
 
 

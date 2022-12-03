@@ -121,3 +121,13 @@ li a:hover {
 .brilho-50{
   filter: brightness(50%);
 }
+
+@media screen and (max-width: 470px){
+  #container-home{
+    flex-direction: column;
+  }
+
+  #foto-container{
+    flex-basis: 10px;
+  }
+}

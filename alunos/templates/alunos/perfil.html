@@ -5,9 +5,12 @@ Perfil
 {% endblock title %}
 
 {% block content %}
-<div id = "tp">
-    <div class = "p1"><h1><p style="color: white;">Perfil do aluno</p></h1></div>  
-    <div class = "p2"><button style="border-color:#000000; background-color: #025f18;"class="btn btn-primary" aria-pressed="true"><a href="{% url 'alunos:editarperfil' %}">Atualizar</a></button></div>
+<div class="d-flex justify-content-around">
+    <h1>Perfil do aluno</h1>
+    <div style="width: 10px;"></div>
+    <div style="width: 10px;"></div>
+    <div style="width: 10px;"></div>
+    <a href="{% url 'alunos:editarperfil' %}" class="btn btn-primary"><b>Atualizar</b></a>
 </div>
     <br>
 
@@ -61,6 +64,7 @@ Perfil
         </ul>
     </div>
     <br>
-    <button class="btn btn-danger" aria-pressed="true"><a href="{% url 'alunos:home' %}">Voltar</a></button><br><br>
+    <a href="{% url 'alunos:home' %}" class="btn btn-secondary">Voltar</a>
+    <br><br>
 
 {% endblock %}
