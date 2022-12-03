@@ -17,19 +17,30 @@ Aulas
     <div class = "lista-aulas">
     {% for aula in aulas %}
         <div class = "card-aulas">
-            <p> <a href="{% url 'professores:detalhe_aula' aula.pk %}"> {{ aula.modalidade }} </a> dia {{ aula.dia }} </p> 
-            <a href="{% url 'professores:aula_visivel' aula.pk %}"> visivel/invisível </a>
+            <h5 style="text-align: center; margin-top: 10px; color: white;"><b>Aula de {{ aula.modalidade }}</b></h5>
+            <p style="text-align: center;">Dia {{ aula.dia }}</p>
+            <div style="text-align: center;">
+                <a href="{% url 'professores:detalhe_aula' aula.pk %}" class="btn btn-secondary">Ver detalhes</a>
+            </div>
+            <br>
+            <br>
+
+            <div class="d-grid gap-2 col-6 mx-auto">   
+                <a href="{% url 'professores:aula_visivel' aula.pk %}" class="btn btn-secondary"> visivel/invisível </a>
+            </div>
 
             {% if aula.visivel %}
-            <p> A aula está visível</p>
+            <p class="p1" style="text-align: center;"> A aula está <b><u style="color: rgb(254, 185, 47);">visível</u></b></p>
 
             {% else %}
-
-            <p> A aula está invisível </p>
+            <p class="p1" style="text-align: center;"> A aula está <b><u>invisível</u></b></p>
 
             {% endif %}
 
-            <a href="{% url 'professores:deletar_aula' aula.pk %}"> deletar aula </a>
+            <br>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href = "{% url 'professores:deletar_aula' aula.pk %}" class="btn btn-danger">Apagar</a>
+            </div>
 
         </div>
     {% endfor %}
