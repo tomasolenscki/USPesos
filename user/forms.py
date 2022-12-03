@@ -7,15 +7,15 @@ from django.contrib.auth import get_user_model
 class AlunoCadastroForm(UserCreationForm):
 
     # Padrão todos os usuários
-    nome = forms.CharField(required = False)
+    nome = forms.CharField(required = True)
 
     # Campos comuns com o professor
-    cpf = forms.CharField(label='CPF',required = False)
-    email = forms.EmailField(required = False)
-    nascimento = forms.DateField(label='Data de nascimento (dd/mm/aaaa)', required = False)
-    telefone = forms.CharField(label='Número de telefone',required = False)
+    cpf = forms.CharField(label='CPF',required = True)
+    email = forms.EmailField(required = True)
+    nascimento = forms.DateField(label='Data de nascimento (dd/mm/aaaa)', required = True)
+    telefone = forms.CharField(label='Número de telefone',required = True)
     endereco = forms.CharField(label='Endereço',required = False)
-    urlfoto = forms.CharField(label='Url da Foto',required = False)
+    urlfoto = forms.CharField(label='Url da Foto',required = True)
 
     # Campos exclusivos/perfil
     altura = forms.IntegerField(label='Altura (cm)',required = False)
