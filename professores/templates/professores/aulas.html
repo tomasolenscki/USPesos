@@ -7,7 +7,7 @@ Aulas
 {% block content %}
 
 <div id = "tp">
-    <div class = "p1"><h1><p style="color: white;">Aulas</p></h1></div>  
+    <div class = "p1"><h1><p style="color: white;">Aulas</p></h1></div> 
     <div class = "p2"><button style="border-color:#000000; "class="btn btn-success" aria-pressed="true"><a href = "{% url 'professores:nova_aula' %}">Adicionar nova aula</a></button></div>
 </div>
 
@@ -40,6 +40,12 @@ Aulas
 
 </p>
 
-<button class="btn btn-danger" aria-pressed="true"><a href = "{% url 'professores:home'  %}">Voltar</a></button> 
 <br>
+<br>
+
+<a href="{% url 'professores:home' %}" class="btn btn-secondary">Voltar</a>
+    
+<br>
+<br>
+
 {% endblock %}

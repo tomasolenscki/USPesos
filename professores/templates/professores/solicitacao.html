@@ -30,7 +30,12 @@ Criar Treino
 {% endif %}
     <hr>
         <button style="border-color:#000000; background-color: #14a839;" class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicionar um novo exercício</a></button>  <br><br>
-        <button class="btn btn-danger" aria-pressed="true"><a href = "{% url 'professores:solicitacoes'  %}">Voltar</a></button> 
+        <br>
+        <br>
+
+        <a href="{% url 'professores:solicitacoes' %}" class="btn btn-secondary">Voltar</a>
+            
+        <br>
         <br>
 
 {% endblock %}

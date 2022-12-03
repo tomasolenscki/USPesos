@@ -7,6 +7,7 @@
 <p> Tempo médio na acadêmia - {{ media_tempos }} </p>
 <p> Média de idades - {{ media_idades }} </p>
 
+<br>
 <h2> Professores </h2>
 
 <p> Total de professores - {{ professores.count }} </p>
@@ -34,6 +35,7 @@
 
 {% endfor %}
 
+<br>
 <h2> Secretaria </h2>
 
 <p> Total de secretarios: {{ secretarios }} </p>
@@ -49,5 +51,13 @@
 <p>{{ secretario }}</p>
 
 {% endfor %}
+
+<br>
+<br>
+
+<a href="{% url 'secretaria:home' %}" class="btn btn-secondary">Voltar</a>
+    
+<br>
+<br>
 
 {% endblock content %}

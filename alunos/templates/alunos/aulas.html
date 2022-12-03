@@ -29,7 +29,7 @@ Aulas
 
 {% else %}
 
-Não há nenhuma aula hoje.
+<p>Não há nenhuma aula hoje.</p> <br>
 
 {% endif %}
 
@@ -55,5 +55,13 @@ Não há nenhuma aula hoje.
 Não há nenhuma aula amanhã.
 
 {% endif %}
+
+<br>
+<br>
+
+<a href="{% url 'alunos:home' %}" class="btn btn-secondary">Voltar</a>
+    
+<br>
+<br>
 
 {% endblock content %}
