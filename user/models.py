@@ -66,7 +66,7 @@ class Professor(models.Model):
     # urlfoto = models.CharField(_("URL da foto"), blank=True, max_length=255)
 
     # #Campos exclusivos
-    # cref = models.CharField("CREF", blank=True, max_length=14)
+    cref = models.CharField("CREF", blank=True, max_length=14)
 
     def __str__(self):
         return self.user.name
