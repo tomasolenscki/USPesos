@@ -30,8 +30,7 @@ class Aluno_register(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
-        return redirect('login_redirect')
+        return redirect('secretaria:home')
 
 # View para o cadastro de professor
 @method_decorator([login_required, admin_required], name='dispatch')
@@ -47,8 +46,7 @@ class Professor_register(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
-        return redirect('login_redirect')
+        return redirect('secretaria:home')
 
 @login_required(login_url='/user/login/')
 def home(request):
