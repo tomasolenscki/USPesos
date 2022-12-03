@@ -6,10 +6,12 @@ Aulas
 
 {% block content %}
 
-<div id = "tp">
-    <div class = "p1"><h1><p style="color: white;">Aulas</p></h1></div> 
-    <div class = "p2"><button style="border-color:#000000; "class="btn btn-success" aria-pressed="true"><a href = "{% url 'professores:nova_aula' %}">Adicionar nova aula</a></button></div>
+<div class="d-flex justify-content-around">
+    <div class = "p1"><h1>Aulas</h1></div>
+    <div style="width: 85%"></div>
+    <div class = "p2"><a href="{% url 'professores:nova_aula' %}" class="btn btn-primary" style="height:40px;"><b>Atualizar</b></a></div>
 </div>
+    <br>
 
 {% if aulas %}
     <div class = "lista-aulas">
@@ -34,7 +36,7 @@ Aulas
     </div>
 
 {% else %}
-
+    <div class = "p1"><p>Não há nenhuma aula cadastrada.</p></div>
 {% endif %}
 <p>
 
