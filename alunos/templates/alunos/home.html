@@ -61,7 +61,6 @@ Home
 </div>
 
 <br>
-<br>
 
 {% if ultima_sessao.tempo_fim or not ultima_sessao %}
 
@@ -74,9 +73,6 @@ Home
 <div class="d-grid gap-2 col-6 mx-auto">
   <a href="{% url 'alunos:terminar_sessao' %}" class="btn btn-danger">Check-out</a>
 </div>
-
 {% endif %}
-
-<p><a type="button" href="{% url 'logout' %}?next=/user/login/">Logout</a></p>
 
 {% endblock %}

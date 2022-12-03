@@ -2,6 +2,11 @@
 
 {% block content %}
 
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Solicitar Treino</p></h1></div>  
+</div>
+
+<div class = "p1">
 <form method="POST" action="{% url 'alunos:novotreino' %}">
     {% csrf_token %}
     {{ form.as_p }}
@@ -12,8 +17,7 @@
 <br>
 
 <a href="{% url 'alunos:home' %}" class="btn btn-secondary">Voltar</a>
-    
-<br>
+</div>    
 <br>
 
 {% endblock %}

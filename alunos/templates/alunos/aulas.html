@@ -6,8 +6,11 @@ Aulas
 
 {% block content %}
 
-<h1>Aulas </h1>
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Aulas</p></h1></div>  
+</div>
 
+<div class = "p1">
 {% if aulas_hoje %}
 
     <p> Aulas de hoje: </p>
@@ -52,16 +55,16 @@ Aulas
 
 {% else %}
 
-Não há nenhuma aula amanhã.
+<p>Não há nenhuma aula amanhã.</p> 
 
 {% endif %}
+</div>
 
 <br>
 <br>
 
 <a href="{% url 'alunos:home' %}" class="btn btn-secondary">Voltar</a>
     
-<br>
 <br>
 
 {% endblock content %}

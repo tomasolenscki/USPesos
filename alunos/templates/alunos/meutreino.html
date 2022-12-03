@@ -12,6 +12,7 @@ Meu Treino
 
 <div>
 
+<div class = "p1">
 {% if itenstreino and treino_vigente %}
     <div class = "lista-exercicio">
     {% for item in itenstreino %}
@@ -39,7 +40,7 @@ Meu Treino
         <br>
     {% endfor %}
     </div>
-
+<br>
 <p>Quer um novo treino? <a href="{% url 'alunos:novotreino' %}">Requistar novo treino</a></p>
 
 {% elif treino_vigente %}
@@ -51,15 +52,13 @@ Meu Treino
     <a href="{% url 'alunos:novotreino' %}"> Não existe treino vigente. Solicite já um treino:  </a>
 
 {% endif %}
-
+</div>
 </div>
 
-<br>
 <br>
 
 <a href="{% url 'alunos:home' %}" class="btn btn-secondary">Voltar</a>
     
-<br>
 <br>
 
 {% endblock %}
