@@ -8,7 +8,7 @@ Criar Treino
 
 <div id = "tp">
     <div class = "p1"><h1><p style="color: white;">Solicitação de treino</p></h1></div>  
-    <div class = "p2"><button style="border-color:#000000; background-color: #14832e;"class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:manda_treino' pk %}">Enviar</a></button></div>
+    <div class = "p2"><button style="border-color:#000000; "class="btn btn-success" aria-pressed="true"><a href = "{% url 'professores:manda_treino' pk %}">Enviar</a></button></div>
 </div>
 
 {% if itenstreino %}
@@ -18,17 +18,18 @@ Criar Treino
             <p> Exercício: {{ item.exercicio }}</p>
             <p> Carga: {{ item.carga }}</p>
             <p> Repetições: {{ item.repeticao }}</p>
-            <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
+            <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>        
+            <button style="border-color:#000000; background-color: #ff1414; height: 40px;"class="btn btn-primary" aria-pressed="true"><p><a href = "{% url 'professores:deleta_ex_treino' pk item.pk %}">Deletar item</a></p></button>
         </div>
-        <p><a href = "{% url 'professores:deleta_ex_treino' pk item.pk %}">Deletar item</a> </p>
+
         <br>
     {% endfor %}
     </div>
 {% else %}
 
 {% endif %}
-
-        <button style="border-color:#000000; background-color: #ad0e0e;" class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicionar um novo exercício</a></button>  <br><br>
+    <hr>
+        <button style="border-color:#000000; background-color: #14a839;" class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:add_ex_treino'  pk  %}">Adicionar um novo exercício</a></button>  <br><br>
         <button class="btn btn-danger" aria-pressed="true"><a href = "{% url 'professores:solicitacoes'  %}">Voltar</a></button> 
         <br>
 
