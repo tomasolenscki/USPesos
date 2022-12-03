@@ -75,3 +75,23 @@
   height: 300px;
   margin-right:20px 
 }
+
+
+
+.lista-solicitacoes{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card-solicitacoes{
+  border: 4px solid var(--secondary-bg-color);
+  border-radius: 15px;
+  box-shadow: 4px 4px 20px var(--color-shadow);
+  margin: 10px;
+  padding: 1.25rem;
+  width: 48%;
+  background-color: #c55002;
+}
+
