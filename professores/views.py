@@ -97,6 +97,20 @@ class AdicionaAula(CreateView):
     template_name = 'professores/nova_aula.html'
     success_url = '/professores/aulas'
 
+    def form_valid(self, form):
+
+        aula = form.save(commit=False)
+
+        aula.professor = Professor.objects.get(user = self.request.user)
+        aula.visivel = False
+
+        aula.save()
+
+        inscricao = Inscricao.objects.create(aula = aula)
+
+        inscricao.save()
+        return redirect('professores:aulas')
+
 @login_required
 @professor_required
 def aulas(request):

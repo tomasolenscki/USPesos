@@ -154,7 +154,7 @@ class TreinoCreateView(generic.CreateView):
     success_url = '/alunos/meutreino/'
 
     def form_valid(self, form):
-        treino = form.save()
+        treino = form.save(commit=False)
         treino.aluno = Aluno.objects.get(user = self.request.user)
         treino.save()
         return redirect('alunos:meutreino')

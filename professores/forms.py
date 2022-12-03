@@ -12,7 +12,6 @@ class AulaForm(ModelForm):
         model = Aula
         fields = [
             'modalidade',
-            'professor',
             'dia',
             'hora',
             'duracao',
@@ -24,20 +23,6 @@ class AulaForm(ModelForm):
             'duracao': forms.TimeInput(attrs={'type': 'time'}),
         }
 
-    @transaction.atomic
-    def save(self):
-
-        aula = super().save(commit=False)
-        aula.visivel = False
-
-        aula.save()
-
-        inscricao = Inscricao.objects.create(aula = aula)
-
-        inscricao.save()
-
-
-        return aula
 
 class ItemTreinoForm(ModelForm):
     class Meta:

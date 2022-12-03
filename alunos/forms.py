@@ -11,7 +11,6 @@ class TreinoForm(ModelForm):
             'nivel',
             'comentario',
             'professor',
-            'aluno',
         ]
         widgets = {
             'nivel': forms.Select(choices = ((1, 'fácil'), (2, 'médio'), (3, 'difícil')))
