@@ -63,10 +63,10 @@ class Professor(models.Model):
     # idade = models.IntegerField(_("Idade"), blank=True)
     # telefone = models.CharField(_("Número de telefone"), blank=True, max_length=20)
     # endereco = models.CharField(_("Endereço"), blank=True, max_length=255)
-    # urlfoto = models.CharField(_("URL da foto"), blank=True, max_length=255)
+    urlfoto = models.CharField(_("URL da foto"), blank=True, max_length=255)
 
     # #Campos exclusivos
-    # cref = models.CharField("CREF", blank=True, max_length=14)
+    cref = models.CharField("CREF", blank=True, max_length=14)
 
     def __str__(self):
         return self.user.name
