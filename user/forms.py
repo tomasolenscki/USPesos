@@ -36,6 +36,7 @@ class AlunoCadastroForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_aluno = True
         user.name = self.cleaned_data.get('nome')
+        user.email = self.cleaned_data.get('email')
 
         user.save()
 
@@ -72,10 +73,10 @@ class ProfessorCadastroForm(UserCreationForm):
     # idade = forms.IntegerField(required = True)
     # telefone = forms.CharField(required = True)
     # endereco = forms.CharField(required = True)
-    # urlfoto = forms.CharField(required = True)
+    urlfoto = forms.CharField(required = True)
 
     # # Campos exclusivos
-    # cref = forms.CharField()
+    cref = forms.CharField()
 
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
@@ -86,6 +87,7 @@ class ProfessorCadastroForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_professor = True
         user.name = self.cleaned_data.get('nome')
+        user.email = self.cleaned_data.get('email')
 
         user.save()
 
@@ -95,9 +97,9 @@ class ProfessorCadastroForm(UserCreationForm):
         # professor.idade.add(*self.cleaned_data.get('idade'))
         # professor.telefone.add(*self.cleaned_data.get('telefone'))
         # professor.endereco.add(*self.cleaned_data.get('endereco'))
-        # professor.urlfoto.add(*self.cleaned_data.get('urlfoto'))
+        professor.urlfoto = self.cleaned_data.get('urlfoto')
 
-        # professor.cref.add(*self.cleaned_data.get('cref'))
+        professor.cref = self.cleaned_data.get('cref')
         professor.save()
 
         return user

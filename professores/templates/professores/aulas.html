@@ -6,36 +6,40 @@ Aulas
 
 {% block content %}
 
-<h1>Aulas </h1>
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Aulas</p></h1></div>  
+    <div class = "p2"><button style="border-color:#000000; background-color: #00360d;"class="btn btn-primary" aria-pressed="true"><a href = "{% url 'professores:nova_aula' %}">Adicionar nova aula</a></button></div>
+</div>
 
 {% if aulas %}
-
+    <div class = "lista-aulas">
     {% for aula in aulas %}
-        
-        <p> <a href="{% url 'professores:detalhe_aula' aula.pk %}"> {{ aula.modalidade }} </a>  </p> 
-        
-        <a href="{% url 'professores:aula_visivel' aula.pk %}"> visivel/invisível </a>
+        <div class = "card-aulas">
+            <p> <a href="{% url 'professores:detalhe_aula' aula.pk %}"> {{ aula.modalidade }} </a>  </p> 
+            <a href="{% url 'professores:aula_visivel' aula.pk %}"> visivel/invisível </a>
 
-        {% if aula.visivel %}
+            {% if aula.visivel %}
+            <p> A aula está visível</p>
 
-        <p> A aula está visível</p>
+            {% else %}
 
-        {% else %}
+            <p> A aula está invisível </p>
 
-        <p> A aula está invisível </p>
+            {% endif %}
 
-        {% endif %}
-        
-        <a href="{% url 'professores:deletar_aula' aula.pk %}"> deletar aula </a>
+            <a href="{% url 'professores:deletar_aula' aula.pk %}"> deletar aula </a>
 
-        <hr>
-
+        </div>
     {% endfor %}
+    </div>
 
 {% else %}
 
 {% endif %}
 <p>
-<a href="{% url 'professores:nova_aula' %}"> Adicione novas aulas: </a> 
+
 </p>
+
+<button class="btn btn-danger" aria-pressed="true"><a href = "{% url 'professores:solicitacoes'  %}">Voltar</a></button> 
+<br>
 {% endblock %}
