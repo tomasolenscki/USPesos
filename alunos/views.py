@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from user.decorators import aluno_required
 from django.utils.decorators import method_decorator
-from datetime import datetime
+from datetime import datetime, date, timedelta
 
 # Create your models here.
 
@@ -164,11 +164,15 @@ class TreinoCreateView(generic.CreateView):
 def aulas(request):
     aulas = Aula.objects.filter(visivel = True).all()
     aluno = Aluno.objects.get(user = request.user)
+    aulas_hoje = Aula.objects.filter(visivel = True, dia = date.today())
+    aulas_amanha = Aula.objects.filter(visivel = True, dia = date.today()+ timedelta(days=1))
 
 
     context = {
         "aulas" : aulas,
         "aluno" : aluno,
+        "aulas_hoje" : aulas_hoje,
+        "aulas_amanha" : aulas_amanha,
     }
 
     return render(request, 'alunos/aulas.html', context = context)

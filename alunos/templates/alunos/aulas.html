@@ -8,9 +8,11 @@ Aulas
 
 <h1>Aulas </h1>
 
-{% if aulas %}
+{% if aulas_hoje %}
 
-    {% for aula in aulas %}
+    <p> Aulas de hoje: </p>
+
+    {% for aula in aulas_hoje %}
         
         <p> Modalidade: {{ aula.modalidade.nome }} </p>
         <p> Descrição: {{ aula.modalidade.descricao }} </p>
@@ -25,8 +27,31 @@ Aulas
 
 {% else %}
 
-Ainda não há aulas
+Não há nenhuma aula hoje.
 
 {% endif %}
 
-{% endblock %}
+{% if aulas_amanha %}
+
+    <p> Aulas de amanhã: </p>
+
+    {% for aula in aulas_amanha %}
+        
+        <p> Modalidade: {{ aula.modalidade.nome }} </p>
+        <p> Descrição: {{ aula.modalidade.descricao }} </p>
+        <p> capacidade:  {{ aula.inscritos }} / {{ aula.vagas }}</p>
+        <p> <a href = "{% url 'alunos:inscricao' aula.pk %}"> Inscreva-se </a> </p>
+        <p> <a href = "{% url 'alunos:desinscricao' aula.pk %}"> Desinscreva-se </a> </p>
+
+
+
+        
+    {% endfor %}
+
+{% else %}
+
+Não há nenhuma aula amanhã.
+
+{% endif %}
+
+{% endblock content %}
