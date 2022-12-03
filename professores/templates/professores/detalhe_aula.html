@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Aula de {{ aula }}
+Aula de {{ aula.modalidade }}
 {% endblock title %}
 
 {% block content %}
 
-<h1> Aula de {{ aula }} </h1>
+<h1> Aula de {{ aula.modalidade }} </h1>
 
 {% if alunos %}
 
@@ -20,6 +20,8 @@ Aula de {{ aula }}
 
 
 {% else %}
+
+<p>Não há alunos inscritos ainda</p>
 
 {% endif %}
 
