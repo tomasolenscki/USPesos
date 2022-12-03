@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div class="p1">
+
 <h2> Alunos </h2>
 
-<p> Total de alunos - {{ alunos.count }} </p>
-<p> Tempo médio na acadêmia - {{ media_tempos }} </p>
-<p> Média de idades - {{ media_idades }} </p>
+<p><b> Total de alunos: </b> {{ alunos.count }} </p>
+<p><b> Tempo médio na acadêmia: </b> {{ media_tempos }} </p>
+<p><b> Média de idades: </b> {{ media_idades }} </p>
 
 <br>
 <h2> Professores </h2>
 
-<p> Total de professores - {{ professores.count }} </p>
-<p> Treino por professor -  </p>
+<p><b> Total de professores: </b> {{ professores.count }} </p>
+<p><b> Treino por professor: </b>  </p>
 
 {% for treino in treinos %}
 
@@ -19,7 +22,8 @@
 
 {% endfor %}
 
-<p> Relação tipo de aula modalidade </p>
+
+<p><b> Relação tipo de aula, modalidade: </b></p>
 
 {% for aula in aulas %}
 
@@ -27,7 +31,7 @@
 
 {% endfor %}
 
-<p> Relação número de aulas Professor </p>
+<p><b> Relação número de aulas Professor: </b></p>
 
 {% for aula in aulas_prof %}
 
@@ -38,15 +42,17 @@
 <br>
 <h2> Secretaria </h2>
 
-<p> Total de secretarios: {{ secretarios }} </p>
+<p><b> Total de secretarios:</b> {{ secretarios }} </p>
 
-<p> Cadastro de aluno mais recente: {{ ultimo_aluno }} </p>
+<p><b> Cadastro de aluno mais recente:</b> {{ ultimo_aluno }} </p>
 
-<p> Cadastro de professor mais recente: {{ ultimo_professor }} </p>
+<p><b> Cadastro de professor mais recente:</b> {{ ultimo_professor }} </p>
 
-<p> Professor do mês: {{ professor_do_mes.urlfoto }} </p>
+<p><b> Professor do mês:</b> {{ professor_do_mes.nome }}</p>
+    <img src="{{ professor_do_mes.urlfoto }} " alt="Foto professor do mês" id="foto-perfil">
 
-<p> Alunos por secretario: </p>
+
+<p><b> Alunos por secretario: </b></p>
 
 {% for secretario in alunos_por_secretarios %}
 
@@ -61,5 +67,7 @@
     
 <br>
 <br>
+
+</div>
 
 {% endblock content %}

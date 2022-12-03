@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>X</h2>
+
+<div class="p1">
+<h2>Cadastro de aluno</h2><br>
 <form method="POST" action="{% url 'user:cadastro_aluno' %}">
     {% csrf_token %}
     {{ form.as_p }}
@@ -15,5 +17,7 @@
     
 <br>
 <br>
+
+</div>
 
 {% endblock content %}

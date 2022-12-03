@@ -26,7 +26,7 @@ def dados(request):
         idades += idade
 
     if len(alunos) != 0:
-        media_idades = idades/len(alunos)
+        media_idades = round(idades/len(alunos), 2)
     else:
         media_idades = 0
 
@@ -77,7 +77,7 @@ def dados(request):
             if sessao.tempo_fim:
                 tempo_sessao += (sessao.tempo_fim.hour - sessao.tempo_inicio.hour)*60 + sessao.tempo_fim.minute - sessao.tempo_inicio.minute
                 numero_sessoes += 1
-        media_de_tempos = tempo_sessao/numero_sessoes
+        media_de_tempos = round(tempo_sessao/numero_sessoes, 2)
 
     else:
         media_de_tempos = 0
