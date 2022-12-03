@@ -6,18 +6,24 @@ Home
 
 {% block content %}
 
-<h1>Solicitações de treino</h1>
+<div id = "tp">
+    <div class = "p1"><h1><p style="color: white;">Solicitações de treino</p></h1></div>  
+</div>
 
 {% if solicitacoes %}
-
+    <div class = "lista-solicitacoes">
     {% for solicitacao in solicitacoes %}
-        
-        <a href="{% url 'professores:mostra_treino' solicitacao.pk %}"> solicitação do aluno {{ solicitacao.aluno.user.name}} de nível {{ solicitacao.nivel }} </a>
-        <p> Comentário do aluno: "{{ solicitacao.comentario }}"</p>
+        <div class = "card-solicitacoes">
+            <p style="text-align: center; color:rgb(0, 0, 0)">Solicitação do aluno <b>{{ solicitacao.aluno.user.name}}</b> de <b>nível {{ solicitacao.nivel }}</b></p>
+            <p style="color:rgb(255, 255, 255)">Comentário do aluno: <br>    "{{ solicitacao.comentario }}"</p><br>
+            <button style="border-color:#000000; background-color: #ffffff;"class="btn btn-primary" aria-pressed="true"><a href="{% url 'professores:mostra_treino' solicitacao.pk %}">Editar</a></button>
+        </div>
     {% endfor %}
-
+    </div>
+    <br>
 {% else %}
 
 {% endif %}
-
+    <button class="btn btn-danger" aria-pressed="true"><a href = "{% url 'professores:solicitacoes'  %}">Voltar</a></button> 
+    <br>
 {% endblock %}
