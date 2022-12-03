@@ -20,3 +20,4 @@
 ### UPAR NO GITHUB
 - git remote add github https://github.com/tomasolenscki/USPesos (primeira vez)
 - git push --mirror github
+- git clone https://github.com/tomasolenscki/USPesos.git
