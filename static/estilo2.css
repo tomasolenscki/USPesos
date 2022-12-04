@@ -121,9 +121,28 @@ a{
 }
 
 #foto-container-secretaria{
-  flex-basis: 500px;
-  height: 280px;
+  /* flex-basis: 500px; */
+  height: 17em;
+  width: 30em;
   border-radius: 50px;
   margin: 20px;
   overflow: hidden;
+}
+
+#container-dados{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+#bloco-container-dados{
+  flex-basis: 350px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(254, 185, 47);
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.286);
+  box-shadow: 2px 2px 10px rgb(254, 185, 47);
 }

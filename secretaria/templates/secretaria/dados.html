@@ -6,61 +6,68 @@
 
 <h1>Dados</h1><br>
 
-<h2> Alunos </h2>
+<div id="container-dados">
 
-<p><b> Total de alunos: </b> {{ alunos.count }} </p>
-<p><b> Tempo médio na acadêmia: </b> {{ media_tempos }} </p>
-<p><b> Média de idades: </b> {{ media_idades }} </p>
+    <div id="bloco-container-dados">
+        <h2> Alunos </h2><br>
 
-<br>
-<h2> Professores </h2>
+        <p><b> Total de alunos: </b> {{ alunos.count }} </p>
+        <p><b> Tempo médio na acadêmia: </b> {{ media_tempos }} </p>
+        <p><b> Média de idades: </b> {{ media_idades }} </p>
+    </div>
+    
+    <div id="bloco-container-dados">
+        <h2> Professores </h2><br>
 
-<p><b> Total de professores: </b> {{ professores.count }} </p>
-<p><b> Treino por professor: </b>  </p>
+        <p><b> Total de professores: </b> {{ professores.count }} </p>
+        <p><b> Treino por professor: </b>  </p>
 
-{% for treino in treinos %}
+        {% for treino in treinos %}
 
-<p>{{ treino }}</p>
+        <p>{{ treino }}</p>
 
-{% endfor %}
-
-
-<p><b> Relação tipo de aula, modalidade: </b></p>
-
-{% for aula in aulas %}
-
-<p>{{ aula }}</p>
-
-{% endfor %}
-
-<p><b> Relação número de aulas Professor: </b></p>
-
-{% for aula in aulas_prof %}
-
-<p>{{ aula }}</p>
-
-{% endfor %}
-
-<br>
-<h2> Secretaria </h2>
-
-<p><b> Total de secretarios:</b> {{ secretarios }} </p>
-
-<p><b> Cadastro de aluno mais recente:</b> {{ ultimo_aluno }} </p>
-
-<p><b> Cadastro de professor mais recente:</b> {{ ultimo_professor }} </p>
-
-<p><b> Professor do mês:</b> {{ professor_do_mes.nome }}</p>
-    <img src="{{ professor_do_mes.urlfoto }} " alt="Foto professor do mês" id="foto-perfil">
+        {% endfor %}
 
 
-<p><b> Alunos por secretario: </b></p>
+        <p><b> Relação tipo de aula, modalidade: </b></p>
 
-{% for secretario in alunos_por_secretarios %}
+        {% for aula in aulas %}
 
-<p>{{ secretario }}</p>
+        <p>{{ aula }}</p>
 
-{% endfor %}
+        {% endfor %}
+
+        <p><b> Relação número de aulas Professor: </b></p>
+
+        {% for aula in aulas_prof %}
+
+        <p>{{ aula }}</p>
+
+        {% endfor %}
+    </div>
+    
+    <div id="bloco-container-dados">
+        <h2> Secretaria </h2><br>
+
+        <p><b> Total de secretarios:</b> {{ secretarios }} </p>
+
+        <p><b> Cadastro de aluno mais recente:</b> {{ ultimo_aluno }} </p>
+
+        <p><b> Cadastro de professor mais recente:</b> {{ ultimo_professor }} </p>
+
+        <p><b> Professor do mês:</b> {{ professor_do_mes.nome }}</p>
+            <img src="{{ professor_do_mes.urlfoto }} " alt="Foto professor do mês" id="foto-perfil">
+
+
+        <p><b> Alunos por secretario: </b></p>
+
+        {% for secretario in alunos_por_secretarios %}
+
+        <p>{{ secretario }}</p>
+
+        {% endfor %}
+    </div>
+</div>
 
 <br>
 <br>
