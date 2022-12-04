@@ -15,7 +15,7 @@ Nova aula
     <form method="POST" action="{% url 'professores:nova_aula' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Criar</button>
+        <button type="submit" class="btn btn-primary">Criar</button>
     </form>
 </div>
 
