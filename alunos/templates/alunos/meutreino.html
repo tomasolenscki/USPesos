@@ -6,8 +6,10 @@ Meu Treino
 
 {% block content %}
 
-<div id = "tp">
-    <div class = "p1"><h1><p style="color: white;">Meu treino</p></h1></div>  
+<div class="d-flex justify-content-around">
+    <div class = "p1"><h1>Meu treino</h1></div>
+    <div style="width: 70%"></div>
+    <div class = "p2"><a href="{% url 'alunos:novotreino' %}" class="btn btn-primary" style="height:40px;"><b>Novo treino</b></a></div>
 </div>
 
 <div>

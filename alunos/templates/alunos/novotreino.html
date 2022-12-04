@@ -10,13 +10,13 @@
 <form method="POST" action="{% url 'alunos:novotreino' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Requisitar</button>
+    <button type="submit" class="btn btn-primary">Requisitar</button>
 </form>
 
 <br>
 <br>
 
-<a href="{% url 'alunos:home' %}" class="btn btn-secondary">Voltar</a>
+<a href="{% url 'alunos:meutreino' %}" class="btn btn-secondary">Voltar</a>
 </div>    
 <br>
 

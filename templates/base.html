@@ -28,14 +28,14 @@
         </a>
         <nav id="navegacao-principal">
             <ul>
-                <li><a href="{% url 'user:home' %}"><img src="/static/logo_uspesos_2.png" height="30px"></a></li>
+                <li><a href="{% url 'user:home' %}"><img src="/static/logo_uspesos_2.png" id="logo-header"></a></li>
                 {% if user.is_authenticated %}
                     {% if user.is_aluno or user.is_professor %}
-                    <li><h6 style="color: black;"><b>Logado(a) como: {{user.name}}</b></h6></li>
-                    <li><a href="{% url 'logout' %}?next=/user/login/">Log out</a></li>
+                    <li><h6 style="color: black;"><b id="texto-header">Logado(a) como: {{user.name}}</b></h6></li>
+                    <li><a href="{% url 'logout' %}?next=/user/login/" id="texto-header">Log out</a></li>
                     {% else %}
-                    <li><h6 style="color: black;"><b>Logado como secretario</b></h6></li>
-                    <li><a href="{% url 'logout' %}?next=/user/login/">Log out</a></li>
+                    <li><h6 style="color: black;" id="texto-header"><b id="texto-header">Logado como secretario</b></h6></li>
+                    <li><a href="{% url 'logout' %}?next=/user/login/" id="texto-header">Log out</a></li>
                     {% endif %}
                 {% else %}
                     <li><h6 style="color: black;"><b>Bem-vindo(a) ao USPesos! Entre em sua conta para continuar</b></h6></li>

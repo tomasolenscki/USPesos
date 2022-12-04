@@ -82,6 +82,9 @@ li a:hover {
   text-align: center;
 }
 
+#logo-header{
+  height: 30px;
+}
 
 #imagem-fundo-login{
   background-size: cover;
@@ -145,4 +148,42 @@ li a:hover {
   #foto-container{
     flex-basis: 10px;
   }
+
+  #texto-header{
+    font-size: 13px;
+  }
+
+  #logo-header{
+    height: 25px;
+  }
+
+  ul{
+    margin-left: 0px;
+    padding: 0px;
+  }
+
+}
+
+@media screen and (max-width: 400px){
+  #container-home{
+    flex-direction: column;
+  }
+
+  #foto-container{
+    flex-basis: 10px;
+  }
+
+  #texto-header{
+    font-size: 11px;
+  }
+
+  #logo-header{
+    height: 25px;
+  }
+
+  ul{
+    margin-left: 0px;
+    padding: 0px;
+  }
+
 }
