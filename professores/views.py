@@ -116,7 +116,7 @@ class AdicionaAula(CreateView):
 @professor_required
 def aulas(request):
 
-    aulas = Aula.objects.all()
+    aulas = Aula.objects.all().filter(professor = Professor.objects.get(user = request.user))
     professor = Professor.objects.get(user = request.user)
 
     context = {
