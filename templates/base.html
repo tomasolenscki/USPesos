@@ -34,11 +34,12 @@
                     <li><h6 style="color: black;"><b id="texto-header">Logado(a) como: {{user.name}}</b></h6></li>
                     <li><a href="{% url 'logout' %}?next=/user/login/" id="texto-header">Log out</a></li>
                     {% else %}
-                    <li><h6 style="color: black;" id="texto-header"><b id="texto-header">Logado como secretario</b></h6></li>
+                    <li><h6 style="color: black;" id="texto-header"><b id="texto-header">Logado como secretaria</b></h6></li>
                     <li><a href="{% url 'logout' %}?next=/user/login/" id="texto-header">Log out</a></li>
                     {% endif %}
                 {% else %}
-                    <li><h6 style="color: black;"><b>Bem-vindo(a) ao USPesos! Entre em sua conta para continuar</b></h6></li>
+                <li><h6 style="color: black;"><b id="texto-header">Bem-vindo(a) ao USPesos!</b></h6></li>
+
                 {% endif %}
             </ul>
         </nav>
