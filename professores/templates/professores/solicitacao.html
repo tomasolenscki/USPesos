@@ -18,7 +18,7 @@ Criar Treino
     {% for item in itenstreino %}
         <div class = "card-exercicio">
             <p> <b>Exercício:</b> {{ item.exercicio }}</p>
-            <p> <b>Carga:</b> {{ item.carga }}</p>
+            <p> <b>Carga:</b> {{ item.carga }} Kg</p>
             <p> <b>Repetições:</b> {{ item.repeticao }}</p>
             <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
             <div class="d-grid gap-2 col-6 mx-auto">
