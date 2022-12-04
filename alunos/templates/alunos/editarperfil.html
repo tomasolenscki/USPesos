@@ -8,18 +8,22 @@ EditarPerfil
 
 <div class="p1">
     <h2>Atualizar Dados do Perfil de {{ user.name }}</h2><br>
+</div>
+<div class="p3">
     <form method="POST" action="{% url 'alunos:editarperfil' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Atualizar</button>
     </form>
-
-    <br>
-    <br>
-
-    <a href="{% url 'alunos:perfil' %}" class="btn btn-secondary">Voltar</a>
-
 </div>
+
+<br>
+<br>
+
+<a href="{% url 'alunos:perfil' %}" class="btn btn-secondary">Voltar</a>
+
+<br>
+<br>
 {% endblock content %}
 
 

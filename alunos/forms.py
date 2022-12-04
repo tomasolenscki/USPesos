@@ -50,3 +50,17 @@ class EditarPerfilForm(ModelForm):
             'cinturaescapular':'Cintura escapular',
             'percentualgordura':'Percentual de gordura',
         }
+
+        widgets = {
+            'email': forms.EmailInput(attrs={'class':'form-control'}),
+            'telefone': forms.TextInput(attrs={'class':'form-control'}),
+            'endereco': forms.TextInput(attrs={'class':'form-control'}),
+            'urlfoto': forms.TextInput(attrs={'class':'form-control'}),
+            'altura': forms.NumberInput(attrs={'class':'form-control'}),
+            'peso': forms.NumberInput(attrs={'class':'form-control'}),
+            'bracos': forms.NumberInput(attrs={'class':'form-control'}),
+            'coxa': forms.NumberInput(attrs={'class':'form-control'}),
+            'peitoral': forms.NumberInput(attrs={'class':'form-control'}),
+            'cinturaescapular': forms.NumberInput(attrs={'class':'form-control'}),
+            'percentualgordura': forms.NumberInput(attrs={'class':'form-control'}),
+        }
