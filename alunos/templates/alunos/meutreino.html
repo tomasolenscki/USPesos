@@ -13,7 +13,7 @@ Meu Treino
 </div>
 
 <div>
-
+<br>
 <div class = "p1">
 {% if itenstreino and treino_vigente %}
     <div class = "lista-exercicio">
@@ -35,7 +35,7 @@ Meu Treino
     {% for item in itenstreino %}
         <div class = "card-exercicio">
             <p> Exercício: {{ item.exercicio }}</p>
-            <p> Carga: {{ item.carga }}</p>
+            <p> Carga: {{ item.carga }} Kg </p>
             <p> Repetições: {{ item.repeticao }}</p>
             <p><img src="{{ item.exercicio.urlfoto }}" alt="Foto do exercicio" id="foto-exercicio"> </p>
         </div>
