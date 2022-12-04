@@ -72,7 +72,7 @@ def dados(request):
     sessoes = Sessao.objects.all()
     tempo_sessao = 0
     numero_sessoes = 0
-    if sessoes:
+    if sessoes and sessoes.first().tempo_fim:
         for sessao in sessoes:
             if sessao.tempo_fim:
                 tempo_sessao += (sessao.tempo_fim.hour - sessao.tempo_inicio.hour)*60 + sessao.tempo_fim.minute - sessao.tempo_inicio.minute
