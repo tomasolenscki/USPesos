@@ -4,6 +4,9 @@ from professores.models import Treino
 from user.models import Aluno
 from django.db import transaction
 
+# class FormataComentario(forms.TextInput):
+#     class = 'form-control'
+
 class TreinoForm(ModelForm):
     class Meta:
         model = Treino
@@ -13,7 +16,7 @@ class TreinoForm(ModelForm):
             'professor',
         ]
         widgets = {
-            'nivel': forms.Select(choices = ((1, 'fácil'), (2, 'médio'), (3, 'difícil')))
+            'nivel': forms.Select(choices = ((1, 'fácil'), (2, 'médio'), (3, 'difícil'))),
         }
 
 class EditarPerfilForm(ModelForm):

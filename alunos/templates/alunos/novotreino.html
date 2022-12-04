@@ -6,18 +6,17 @@
     <div class = "p1"><h1><p style="color: white;">Solicitar Treino</p></h1></div>  
 </div>
 
-<div class = "p1">
+<div class = "p3">
 <form method="POST" action="{% url 'alunos:novotreino' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Requisitar</button>
 </form>
 
-<br>
-<br>
-
-<a href="{% url 'alunos:meutreino' %}" class="btn btn-secondary">Voltar</a>
 </div>    
+
 <br>
+<br>
+<a href="{% url 'alunos:meutreino' %}" class="btn btn-secondary">Voltar</a>
 
 {% endblock %}

@@ -187,3 +187,10 @@ li a:hover {
   }
 
 }
+
+.p3 {
+  margin: 30px;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: rgb(138, 138, 138);
+}
