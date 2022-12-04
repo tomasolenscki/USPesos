@@ -9,7 +9,7 @@ Meu Treino
 <div class="d-flex justify-content-around">
     <div class = "p1"><h1>Meu treino</h1></div>
     <div style="width: 70%"></div>
-    <div class = "p2"><a href="{% url 'alunos:novotreino' %}" class="btn btn-primary" style="height:40px;"><b>Novo treino</b></a></div>
+    <div class = "p2"><a href="{% url 'alunos:novotreino' %}" class="btn btn-primary" style="height:auto;"><b>Novo treino</b></a></div>
 </div>
 
 <div>
@@ -51,7 +51,7 @@ Meu Treino
 
 {% else %}
 
-    <a href="{% url 'alunos:novotreino' %}"> Não existe treino vigente. Solicite já um treino:  </a>
+    <p>Não existe treino vigente. <a href="{% url 'alunos:novotreino' %}">Solicite já um treino</a></p>
 
 {% endif %}
 </div>

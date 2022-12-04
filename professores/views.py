@@ -13,7 +13,8 @@ from django.utils.decorators import method_decorator
 @login_required
 @professor_required
 def home(request):
-    context = {}
+    professor = Professor.objects.get(user=request.user)
+    context = {'professor' : professor,}
     return render(request, 'professores/home.html', context = context)
 
 @login_required

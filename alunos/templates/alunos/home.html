@@ -52,10 +52,22 @@ Home
 <br>
 <br>
 
-<div style="text-align: center;">
-  <p> Última sessão:</p>
-  <p> Início: {{ ultima_sessao.tempo_inicio }} &nbsp; &nbsp; &nbsp; Fim: {{ ultima_sessao.tempo_fim }}  </p>
-</div>
+<article style="text-align: center;">
+  <div class="grid-sessao">
+      <div class="bx1"><p>ULTIMA SESSAO</p></div>
+      {% if ultima_sessao.tempo_inicio %}
+        <div class="bx2">INICIO<br><p style="color: rgb(16, 174, 66);">{{ ultima_sessao.tempo_inicio }}</p></div>
+      {% else %}
+        <div class="bx2">INICIO<br><p style="color: rgb(16, 174, 66);">---</p></div>
+      {% endif %}
+
+      {% if ultima_sessao.tempo_fim %}
+        <div class="bx3">FIM<br><p style="color: red;">{{ ultima_sessao.tempo_fim }}</p></div>
+      {% else %}
+        <div class="bx3">FIM<br><p style="color: red;">---</p></div>
+      {% endif %}
+  </div>
+</article>
 
 <br>
 
