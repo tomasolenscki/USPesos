@@ -165,7 +165,8 @@ def aulas(request):
     aulas = Aula.objects.filter(visivel = True).all()
     aluno = Aluno.objects.get(user = request.user)
     aulas_hoje = Aula.objects.filter(visivel = True, dia = date.today())
-    aulas_amanha = Aula.objects.filter(visivel = True, dia = date.today()+ timedelta(days=1))
+    aulas_amanha = Aula.objects.filter(visivel = True, dia = date.today() + timedelta(days=1))
+    inscricao = Inscricao.objects.all().filter(alunos = aluno)
 
 
     context = {
@@ -173,6 +174,7 @@ def aulas(request):
         "aluno" : aluno,
         "aulas_hoje" : aulas_hoje,
         "aulas_amanha" : aulas_amanha,
+        "inscricao" : inscricao,
     }
 
     return render(request, 'alunos/aulas.html', context = context)

@@ -70,6 +70,6 @@ class Inscricao(models.Model):
     alunos = models.ManyToManyField(Aluno, blank = True)
 
     def __str__(self):
-        return 'inscricao da aula ' + self.aula.modalidade
+        return 'inscricao de aula' + self.aula.modalidade.nome
 
 
