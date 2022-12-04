@@ -11,53 +11,82 @@ Aulas
 </div>
 
 <div class = "p1">
-{% if aulas_hoje %}
-
-    <p> Aulas de hoje: </p>
-
-    {% for aula in aulas_hoje %}
-        
-        <p> Modalidade: {{ aula.modalidade.nome }} </p>
-        <p> Descrição: {{ aula.modalidade.descricao }} </p>
-        <p> capacidade:  {{ aula.inscritos }} / {{ aula.vagas }}</p>
-        <p> Dia: {{  aula.dia }} as {{ aula.hora }} </p>
-        <p> Duração: {{ aula.duracao }} </p>
-        <p> <a href = "{% url 'alunos:inscricao' aula.pk %}"> Inscreva-se </a> </p>
-        <p> <a href = "{% url 'alunos:desinscricao' aula.pk %}"> Desinscreva-se </a> </p>
 
 
+<div id="container-aulas">
+    <div id="texto-aulas">
+        <h4 style="background-color: rgb(254, 185, 47); text-align: center;">AULAS DE HOJE</h4>
+        {% if aulas_hoje %}
+        {% for aula in aulas_hoje %}
+            <ul class="p1">
+                <li> <u><b>Modalidade:</b></u> {{ aula.modalidade.nome }} </li>
+                <li> <u><b>Descrição:</b></u> {{ aula.modalidade.descricao }} </li>
+                <li> <u><b>Capacidade:</b></u>  {{ aula.inscritos }} / {{ aula.vagas }}</li>
+                <li> <u><b>Horário:</b></u> {{ aula.hora }} </li>
+                <li> <u><b>Duração:</b></u> {{ aula.duracao }} </p>
 
-        
-    {% endfor %}
+                    <!-- ADICIONAR CONDICIONAL DE INSCRIÇÃO DO ALUNO -->
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <a href = "{% url 'alunos:inscricao' aula.pk %}" class="btn btn-warning"> Inscreva-se </a>
+                </div>
+                
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <a href = "{% url 'alunos:desinscricao' aula.pk %}" class="btn btn-warning"> Desinscreva-se </a>
+                </div>
+            </ul>
+            <br>
+            
+        {% endfor %}
+    
+    {% else %}
+    
+    <p class="p1">Não há nenhuma aula hoje.</p> <br>
+    
+    {% endif %}
+    </div>
 
-{% else %}
 
-<p>Não há nenhuma aula hoje.</p> <br>
+<div style="width: 10px;"></div>
 
-{% endif %}
 
+    <div id="texto-aulas">
+
+    
+<h4 style="background-color: rgb(254, 185, 47); text-align: center;">AULAS DE AMANHÃ</h4>
 {% if aulas_amanha %}
+        {% for aula in aulas_amanha %}
+            
+        <ul class="p1">
+            <li> <u><b>Modalidade:</b></u> {{ aula.modalidade.nome }} </li>
+            <li> <u><b>Descrição:</b></u> {{ aula.modalidade.descricao }} </li>
+            <li> <u><b>Capacidade:</b></u>  {{ aula.inscritos }} / {{ aula.vagas }}</li>
+            <li> <u><b>Horário:</b></u> {{ aula.hora }} </li>
+            <li> <u><b>Duração:</b></u> {{ aula.duracao }} </p>
+             <!-- ADICIONAR CONDICIONAL DE INSCRIÇÃO DO ALUNO -->
+             <div class="d-grid gap-2 col-6 mx-auto">
+                <a href = "{% url 'alunos:inscricao' aula.pk %}" class="btn btn-warning"> Inscreva-se </a>
+            </div>
+            
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href = "{% url 'alunos:desinscricao' aula.pk %}" class="btn btn-warning"> Desinscreva-se </a>
+            </div>
+        </ul> 
 
-    <p> Aulas de amanhã: </p>
-
-    {% for aula in aulas_amanha %}
-        
-        <p> Modalidade: {{ aula.modalidade.nome }} </p>
-        <p> Descrição: {{ aula.modalidade.descricao }} </p>
-        <p> capacidade:  {{ aula.inscritos }} / {{ aula.vagas }}</p>
-        <p> <a href = "{% url 'alunos:inscricao' aula.pk %}"> Inscreva-se </a> </p>
-        <p> <a href = "{% url 'alunos:desinscricao' aula.pk %}"> Desinscreva-se </a> </p>
 
 
+            
+        {% endfor %}
 
-        
-    {% endfor %}
+    {% else %}
 
-{% else %}
+    <p class="p1">Não há nenhuma aula amanhã.</p>
 
-<p>Não há nenhuma aula amanhã.</p>
+    {% endif %}
+    </div>
 
-{% endif %}
+    <div style="width: 10px;"></div>
+
+
 </div>
 
 <br>
