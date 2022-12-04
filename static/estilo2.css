@@ -111,3 +111,19 @@ a{
     flex-direction: column;
   }
 }
+
+#container-home-secretaria{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+#foto-container-secretaria{
+  flex-basis: 500px;
+  height: 280px;
+  border-radius: 50px;
+  margin: 20px;
+  overflow: hidden;
+}

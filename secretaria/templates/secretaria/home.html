@@ -6,18 +6,13 @@
 
 <h2>Secretaria</h2>
 
-<a type="button" href="{% url 'user:cadastro_aluno' %}">Cadastrar Aluno</a>
-<a type="button" href="{% url 'user:cadastro_professor' %}">Cadastrar Professor</a>
-<a type="button" href="{% url 'secretaria:dados' %}">Dados</a>
-
-<div id="container-home">
+<div id="container-home-secretaria">
 
     <div style="width: 10px; height: 10px;"></div>
   
-    <div style="width: 10px; height: 10px;"></div>
-      <a href="{% url 'user:cadastro_aluno' %}" id="foto-container">
+      <a href="{% url 'user:cadastro_aluno' %}" id="foto-container-secretaria">
           <div class="card bg-dark text-white">
-          <img src="/static/meu_treino.jpg" class="d-block w-100 brilho-50" alt="Cadastro aluno">
+          <img src="/static/cadastro_aluno.jpg" class="d-block w-100 brilho-50" alt="Cadastro aluno">
           <div class="card-img-overlay">
             <h1 class="card-title text-center">Cadastro de aluno</h1>
           </div>
@@ -26,9 +21,9 @@
   
       <div style="width: 10px;"></div>
   
-      <a href="{% url 'user:cadastro_professor' %}" id="foto-container">
+      <a href="{% url 'user:cadastro_professor' %}" id="foto-container-secretaria">
         <div class="card bg-dark text-white">
-          <img src="/static/aulas.webp" class="d-block w-100 brilho-30" alt="Cadastro professor">
+          <img src="/static/cadastro_professor.jpg" class="d-block w-100 brilho-30" alt="Cadastro professor">
           <div class="card-img-overlay">
               <h1 class="card-title text-center">Cadastro de professor</h1>
           </div>
@@ -37,9 +32,9 @@
   
       <div style="width: 10px;"></div>
 
-      <a href="{% url 'secretaria:dados' %}" id="foto-container">
+      <a href="{% url 'secretaria:dados' %}" id="foto-container-secretaria">
         <div class="card bg-dark text-white">
-          <img src="/static/aulas.webp" class="d-block w-100 brilho-30" alt="Dados">
+          <img src="/static/analise_dados.jpg" class="d-block w-100 brilho-30" alt="Dados">
           <div class="card-img-overlay">
               <h1 class="card-title text-center">Dados</h1>
           </div>
