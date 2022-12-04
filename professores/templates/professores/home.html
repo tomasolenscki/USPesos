@@ -8,10 +8,18 @@ Home
 
 
 
-    <h1 class="p1">Olá, {{ user.name }}!</h1>
+    <div class="d-flex justify-content-around">
+      <div class = "p1"><h1>Olá, {{ user.name }}!</h1></div>
+      <div style="width: 55%"></div>
+      <div class = "p2" class="text-decoration-none">
+        <div class="text-center">
+            <img src="{{ professor.urlfoto }}" alt="Foto de perfil" id="foto-perfil">
+            <br>
+            <p>{{ user.name }}</p>
+        </div>
+      </div>
+    </div>
 
-
-<br>
 <br>
 
 <div class="d-flex justify-content-around">

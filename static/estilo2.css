@@ -1,9 +1,66 @@
+@font-face {
+  font-family: 'DIGIB';
+  src: url('/static/DS-DIGIB.TTF') format('truetype');
+}
+
 :root {
   --cor-fundo: rgb(55, 55, 55);
   --cor-da-borda: rgb(255, 255, 255);
   font-family: Inter, sans-serif;
   font-size: 16px;
   line-height: 1.5em;
+}
+
+.grid-sessao{
+  display: grid;
+  grid-template-areas: "bx1 bx1"
+                       "bx2 bx3";
+  width: 90%;
+  height: 200px;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bx1{
+  grid-area: bx1;
+  height: auto;
+  width: auto;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border: solid 3px rgb(49, 49, 49);
+  border-bottom: none;
+  font-family: 'DIGIB';
+  font-size: 35px;
+}
+
+.bx2{
+  grid-area: bx2;
+  height: auto;
+  width: auto;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border: solid 3px rgb(49, 49, 49);
+  font-family: 'DIGIB';
+  font-size: 30px;
+}
+
+.bx3{
+  grid-area: bx3;
+  height: auto;
+  width: auto;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border: solid 3px rgb(49, 49, 49);
+  border-left: none;
+  font-family: 'DIGIB';
+  font-size: 30px;
 }
 
 .cperfil {
