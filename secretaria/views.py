@@ -53,6 +53,7 @@ def dados(request):
         numero_de_aulas = aulas.count()
         if numero_de_aulas > a:
             professor_do_mes = professor
+            a = numero_de_aulas
 
         aulas_por_professor.append((professor.user.name, numero_de_aulas))
 
