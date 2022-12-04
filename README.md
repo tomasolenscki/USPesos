@@ -1,9 +1,7 @@
 ### Ambiente de Desenvolvimento
 - conda create -n djangoenv --no-default-packages
 - activate djangoenv
-- pip install -r requirements.txt
-- pip install djangorestframework
-- pip install django-cors-headers
+- pip install -r requirements.txt (na pasta do projeto)
 
 ### Arrumar banco de dados
 - Apagar todos os migrates
@@ -21,3 +19,9 @@
 - git remote add github https://github.com/tomasolenscki/USPesos (primeira vez)
 - git push --mirror github
 - git clone https://github.com/tomasolenscki/USPesos.git
+
+### PythonAnywhere
+- Não mudar nada pelo editor do próprio site
+- git pull
+- python manage.py collectstatic
+- link: http://uspesos.pythonanywhere.com/
